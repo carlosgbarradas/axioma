@@ -38,32 +38,17 @@ Cada demostración se practica en cuatro niveles:
 
 ---
 
-## Cómo funciona por dentro
+## Cómo empezar
 
-Toda la app vive en un solo archivo, `index.html`, sin dependencias de compilación. El progreso se guarda así:
+1. Abre **https://carlosgbarradas.github.io/axioma/**.
+2. La primera vez, entra a la pestaña **Crear cuenta** y escribe tu nombre, tu correo y una contraseña de al menos 6 caracteres.
+3. Las siguientes veces, usa **Entrar** con el mismo correo y contraseña, desde cualquier computadora o celular. Tu avance te estará esperando.
 
-- **Modo en línea (Supabase).** Cada usuario tiene su cuenta y su avance se sincroniza en la nube, así que lo recupera desde cualquier dispositivo. Si se pierde la conexión, la app sigue guardando en el navegador y sube los cambios al reconectarse.
-- **Modo local.** Si no hay claves de Supabase configuradas, el avance se guarda solo en el navegador, separado por correo.
+No tienes que instalar ni configurar nada. Junto a tu nombre verás **Guardado** cuando tu progreso ya esté en tu cuenta.
 
-### Activar el guardado en línea
-
-1. Crea un proyecto gratis en [supabase.com](https://supabase.com).
-2. En **SQL Editor**, ejecuta el script SQL que está en el comentario `GUARDADO EN LÍNEA`, al inicio del script de `index.html`. Crea la tabla `progress` con reglas (RLS) para que cada usuario solo pueda leer y escribir su propio progreso.
-3. En **Authentication → Sign In / Providers → Email**, desactiva **Confirm email**.
-4. En **Project Settings → API**, copia la *Project URL* y la clave *anon public*.
-5. Pégalas en `index.html`:
-
-   ```js
-   const CLOUD={url:"https://TU-PROYECTO.supabase.co",anonKey:"TU_CLAVE_ANON"};
-   ```
-
-La clave *anon* está pensada para ir en el código del navegador: los datos los protegen las reglas RLS de la tabla.
-
-> Por ahora no hay recuperación de contraseña, porque requiere configurar un servidor de correo (SMTP) en Supabase.
-
-### Publicar cambios
-
-Sube la nueva versión de `index.html` al repositorio (**Add file → Upload files → Commit changes**). GitHub Pages actualiza el sitio en uno o dos minutos y el progreso de los usuarios no se pierde.
+> Si ves una versión anterior de la página (dice "Modo local"), recarga con **Cmd + Option + R** en Mac o **Ctrl + F5** en Windows.
+>
+> Guarda bien tu contraseña: por ahora no hay opción para recuperarla.
 
 ---
 
