@@ -597,7 +597,7 @@ function esc(t){return String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&l
    create policy "actualizar mi progreso" on public.progress
      for update using (auth.uid() = user_id) with check (auth.uid() = user_id);
 ================================================================== */
-const CLOUD={url:"",anonKey:""};
+const CLOUD={url:"https://dvrapagfxcvwyoopmthr.supabase.co",anonKey:"sb_publishable_iGX2g-4x4OMegGZDWDkh9g_f4RDR2_F"};
 
 const root=document.querySelector("main"),LEGACY="axioma.study.v1",SESSION="axioma.session",USERS="axioma.users";
 const blankState=()=>({done:{},errors:{},runs:{},last:null,notes:{},help:{},evidence:{},workshops:{}});
