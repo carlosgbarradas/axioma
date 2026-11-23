@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fbfaf8">
+<meta name="description" content="Practica demostraciones matemáticas en tres columnas con Axioma.">
+<title>Axioma · Taller de demostraciones</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMTAiIGZpbGw9IiM3MDQ2YzEiLz48ZyBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMi4zIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxwYXRoIGQ9Ik0yMCA2djI4TTYgMjBoMjhNMTAgMTBsMjAgMjBNMTAgMzBsMjAtMjBNMTQuNiA3bDEwLjggMjZNNyAyNS40bDI2LTEwLjhNNyAxNC42bDI2IDEwLjhNMTQuNiAzM2wxMC44LTI2Ii8+PC9nPjwvc3ZnPgo=" type="image/svg+xml">
+<style>*{box-sizing:border-box}
+:root{--bg:#fbfaf8;--ink:#242331;--sub:#615e6b;--purple:#7046bc;--darkpur:#583699;--pale:#f2edf9;--line:#dfdce2;--serif:"STIX Two Text","Iowan Old Style",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Consolas,monospace;font-family:var(--sans);color:var(--ink);background:var(--bg);font-size:16px;font-synthesis:style}
+body{margin:0}button,input,textarea,select{font:inherit;color:inherit}button,a{touch-action:manipulation}button{cursor:pointer}button:disabled{opacity:.45;cursor:default}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #9469d9;outline-offset:3px}input:focus,textarea:focus,select:focus{outline:2px solid #9574c9;outline-offset:1px}
+svg.ico{width:19px;height:19px;stroke:currentColor;stroke-width:1.65;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none}.sr,.skip:not(:focus){position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%)}.skip:focus{position:fixed;background:white;padding:12px;z-index:10}
+header{border-bottom:1px solid var(--line);background:#fdfcfb}.head{max-width:1312px;margin:auto;min-height:74px;padding:0 clamp(20px,5vw,72px);display:flex;align-items:center;gap:50px}.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-size:32px;letter-spacing:-1.8px;font-weight:600}.brandmark{width:34px;height:34px;display:block}.nav{display:flex;align-items:center;gap:8px}.nav a{display:flex;gap:8px;align-items:center;color:#605d68;font-size:.925rem;padding:10px 14px;border-radius:7px;font-weight:550}.nav a:hover,.quiet:hover{background:#f0edf3}.nav a.active{background:#efe8f9;color:var(--darkpur)}.profile{margin-left:auto;display:flex;align-items:center;gap:9px;font-size:.9rem;font-weight:550}.avatar{border:1px solid #dcd1ed;border-radius:100%;background:#eee7f6;display:grid;place-items:center;width:33px;height:33px;color:var(--darkpur);font-family:var(--serif);font-size:20px}
+main{max-width:1312px;margin:auto;padding:32px clamp(20px,5vw,72px) 55px;min-height:calc(100vh - 171px)}main:focus{outline:0}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.035em}h1{font-size:clamp(2.35rem,4.8vw,4rem);line-height:1.07}h2{font-size:clamp(1.85rem,2.8vw,2.6rem);line-height:1.13}h3{font-size:1.65rem;line-height:1.15}p{line-height:1.55;color:var(--sub)}.hero{position:relative;overflow:hidden;background:#f0ebfa;border:1px solid #d8cce9;border-radius:16px;display:grid;grid-template-columns:1.12fr 1fr;isolation:isolate;min-height:310px}.hero::after{content:"";position:absolute;inset:0 0 0 42%;z-index:-1;background-image:linear-gradient(to right,#a58eb62c 1px,transparent 1px),linear-gradient(to bottom,#a58eb62c 1px,transparent 1px);background-size:23px 23px;mask-image:linear-gradient(to right,transparent,#000 23%)}.hero-copy{padding:32px 0 34px clamp(24px,3.2vw,46px);z-index:1}.eyebrow{font:600 .75rem/1.35 var(--mono);letter-spacing:.105em;text-transform:uppercase;color:var(--darkpur);display:flex;align-items:center;gap:8px}.eyebrow svg.ico{width:16px;height:16px}.hero h1{font-size:clamp(2.8rem,4.5vw,4.15rem);line-height:.99;margin:17px 0 13px;letter-spacing:-.043em}.hero h1 em{font-weight:500;color:var(--purple)}.hero p{max-width:460px;line-height:1.5;font-size:1rem;color:#585060}.hero .button{margin-top:21px}.hero-graph{position:relative;min-width:0;display:grid;place-items:center;padding:4px 16px 5px 0}.hero canvas{width:100%;height:100%;max-height:320px}
+.button,.quiet,.outline,.tag-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:7px;min-height:43px;padding:10px 17px;font-weight:600;font-size:.925rem;line-height:1.35;border:1px solid transparent}.button{background:var(--purple);color:white;border-color:var(--purple);box-shadow:0 2px 3px #543b6f14}.button:hover:not(:disabled){background:var(--darkpur)}.button .ico{width:17px;height:17px}.outline{background:transparent;border-color:#d6d0db}.outline:hover:not(:disabled){background:#f2edf7;border-color:#bba5d6}.quiet,.tag-btn{background:transparent;color:var(--sub)}.quiet{min-height:36px;padding:6px 9px}.section-line{margin:34px 0 19px;display:flex;justify-content:space-between;align-items:end;gap:18px}.section-line p,.page-title p{margin-top:5px}.seg{display:inline-flex;align-items:center;gap:3px;padding:3px;background:#f1efee;border:1px solid #e5e1e2;border-radius:9px;flex-wrap:wrap}.seg button{border:1px solid transparent;padding:7px 13px;background:transparent;color:#625d68;border-radius:6px;font-weight:550;font-size:.88rem;line-height:1.25}.seg button[aria-pressed="true"]{background:#fff;border-color:#ded9e3;box-shadow:0 1px 4px #29203512;color:var(--darkpur)}.seg button:hover{color:var(--purple)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.card{display:flex;flex-direction:column;position:relative;border:1px solid #dad7dc;border-radius:12px;overflow:hidden;background:#fff;transition:transform .16s,border-color .16s,box-shadow .16s}.card:hover{transform:translateY(-3px);border-color:#b7a3cd;box-shadow:0 5px 16px #33263b0c}.violet{--artbg:#efeaf7;--artdot:#b4a0cd;--accent:#7253a5}.teal{--artbg:#e4f0ec;--artdot:#97b8ab;--accent:#3f776b}.peach{--artbg:#f9ede1;--artdot:#d4b295;--accent:#a96a38}.blue{--artbg:#e7eff7;--artdot:#adc1d7;--accent:#496c9e}.rose{--artbg:#f6e9ef;--artdot:#caaeba;--accent:#975975}.gold{--artbg:#f5efda;--artdot:#c6bd94;--accent:#8f7633}
+.card-art,.topic-figure{background-color:var(--artbg);background-image:radial-gradient(var(--artdot) .68px,transparent .85px);background-size:10px 10px}.card-art{height:118px;border-bottom:1px solid #0000000d;position:relative}.card-art canvas,.topic-figure canvas{width:100%;height:100%}.card-body{padding:17px 20px 15px;flex:1;display:flex;flex-direction:column}.card-body h3{margin-bottom:6px}.card-body p{font-size:.93rem;line-height:1.47}.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:15px;color:#686471;font-size:.8rem;font-weight:550}.small-icon{display:inline-flex;gap:6px;align-items:center}.small-icon .ico{width:15px;height:15px}.open-icon{color:var(--accent);display:grid;place-items:center;border-radius:50%;width:26px;height:26px;background:var(--artbg)}.open-icon .ico{width:15px;height:15px}.page-title{margin:12px 0 25px}.crumbs{display:flex;gap:9px;align-items:center;color:#6a626e;font-size:.9rem;flex-wrap:wrap;margin:0 0 22px}.crumbs a{color:var(--darkpur)}.crumbs .ico{width:13px;height:13px}.topic-head{border:1px solid var(--line);border-radius:13px;overflow:hidden;display:grid;grid-template-columns:1fr 33%;background:#fff}.topic-copy{padding:27px 32px}.topic-copy h1{margin:10px 0}.topic-copy p{max-width:660px}.topic-figure{min-height:175px}.topic-figure canvas{display:block;max-height:220px}.topic-head .eyebrow{color:var(--accent)}
+.list{display:grid;gap:9px}.list-item{background:#fff;display:flex;align-items:center;text-align:left;gap:15px;width:100%;padding:16px 18px;border:1px solid var(--line);border-radius:9px}.list-item:hover{border-color:#b8a3cb;background:#fdfbff}.list-item strong,.ref-card strong{display:block;font-weight:620}.list-item small{display:block;color:var(--sub);margin-top:5px}.list-item>.ico:last-child{margin-left:auto;color:#8a799b}.list-icon{width:38px;height:38px;background:var(--pale);color:var(--purple);border-radius:8px;display:grid;place-items:center;flex:none}.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.48fr);gap:20px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:23px}.panel h2{font-size:1.75rem;margin-bottom:12px}.panel h3{font-size:1.4rem;margin-bottom:8px}.panel+.panel{margin-top:14px}.statement{background:#f3edf9;border-left:3px solid #a889c9;padding:15px 18px;border-radius:0 8px 8px 0;color:#453357;line-height:1.6;margin:16px 0;font-family:var(--serif);font-size:1.18rem;overflow-wrap:anywhere}.level-row{display:flex;gap:12px;border:1px solid var(--line);border-radius:8px;text-align:left;width:100%;align-items:center;padding:13px;background:#fff;margin:8px 0}.level-row[aria-pressed="true"]{background:#f5effb;border-color:#9a78c3}.level-row .num{background:var(--pale);color:var(--darkpur);border-radius:5px;line-height:31px;width:31px;flex:none;text-align:center;font:600 .9rem/31px var(--mono)}.level-row small{display:block;line-height:1.45;color:var(--sub);margin-top:3px}.level-row>.ico{margin-left:auto;color:var(--purple)}.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}.stack{display:grid;gap:14px}.bar{height:6px;border-radius:5px;background:#e9e4ee;overflow:hidden;margin:8px 0 15px}.bar>i{display:block;height:100%;background:var(--purple);border-radius:5px}
+.study-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin:4px 0 18px}.study-head h1{font-size:clamp(2.1rem,3.4vw,3rem);margin:8px 0}.meta{color:var(--sub);font-size:.9rem}.question{margin-top:16px}.question h2{font-size:1.7rem}.proof-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.92rem;margin-top:12px}.proof-table th,.proof-table td{padding:10px 9px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere;line-height:1.4}.proof-table th{background:#f5f2f7;color:#685970;font-size:.83rem}.proof-table th:first-child{width:19%}.proof-table th:nth-child(2){width:32%}.proof-table td:last-child{font-family:var(--serif);font-size:1.05rem}.lineno{font:500 .76rem var(--mono);color:#84768a;margin-right:6px}.indent{border-left:2px solid #cbbddd;padding-left:8px}.blank{display:inline-block;color:var(--purple);border:1px dashed #9f81c3;border-radius:4px;text-align:center;min-width:43px;background:#f7f2fc}.choices{display:grid;gap:8px;margin-top:12px}.choice,.tile{border:1px solid #dcd6e3;background:#fff;min-height:40px;border-radius:7px;text-align:left;padding:9px 12px}.choice{display:flex;align-items:center;gap:10px}.choice span:first-child{padding:2px 5px;border:1px solid #e5deeb;border-radius:4px;font:500 .78rem var(--mono);color:#7e7288}.choice[aria-pressed=true],.tile:hover{border-color:#946cbc;background:#f3edf9}.feedback,.hint{padding:11px 14px;border-radius:7px;margin-top:12px;line-height:1.5;font-size:.94rem}.good{color:#235d4d;background:#e9f4ef}.bad{color:#853f32;background:#faeee8}.hint{background:#f4f0e8;color:#655338}.hint p{color:inherit}.chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.tile{background:#f8f6fa;font-size:.94rem;min-height:35px}.tile-place{padding:10px;border:1px dashed #bfa8d3;border-radius:7px;min-height:49px;display:flex;align-items:center;flex-wrap:wrap;gap:5px}.tile-place>span{font-size:.9rem;color:var(--sub)}.field,textarea{width:100%;border:1px solid #cfc6d8;border-radius:7px;background:white;padding:10px 12px}.symbols{display:flex;gap:4px;flex-wrap:wrap;margin:9px 0}.symbols button{border:1px solid #e1d9e7;background:#f9f6fb;border-radius:4px;min-width:29px;min-height:29px}.note-row{display:grid;grid-template-columns:1fr 1.6fr 2.6fr auto;gap:6px;align-items:start;margin-top:7px}.note-row input,.note-row textarea{min-width:0;font-size:.91rem}.note-row textarea{min-height:44px;resize:vertical}.note-row .quiet{padding:5px}.note-headers{font-weight:600;font-size:.83rem;color:var(--sub)}.photo{max-width:100%;max-height:400px;object-fit:contain;border-radius:6px;margin-top:12px}.ref-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:16px 0}.searchwrap{position:relative;display:flex;align-items:center;gap:8px;background:white;border:1px solid var(--line);border-radius:8px;padding:0 10px}.searchwrap input{border:none;background:transparent;padding:9px 4px;max-width:210px}.ref-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ref-card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:17px;display:flex;gap:13px;align-items:flex-start}.glyph{background:#f0e9f7;color:var(--darkpur);font-family:var(--serif);font-size:20px;min-width:42px;min-height:42px;display:grid;place-items:center;border-radius:7px}.ref-card p{font-size:.94rem}.formula{display:block;color:var(--darkpur);margin:7px 0;font-family:var(--serif);line-height:1.4;overflow-wrap:anywhere}.lean{font-family:var(--mono);font-size:.85rem}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}.stat{background:#f1ebf8;border:1px solid #dfd3eb;border-radius:10px;padding:18px}.stat b{font:500 2.3rem var(--serif);display:block;color:var(--darkpur)}.stat small{color:#65596e}.progress-item+.progress-item{margin-top:14px}.row-between{display:flex;justify-content:space-between;gap:10px;align-items:center}.empty{padding:20px;border:1px dashed var(--line);border-radius:8px;background:#fcfbfd;color:var(--sub)}details{border-top:1px solid var(--line);margin-top:14px;padding-top:12px}summary{cursor:pointer;font-weight:550;color:var(--darkpur)}details p{margin-top:9px}footer{max-width:1180px;margin:auto;border-top:1px solid var(--line);padding:19px 0 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--sub);font-size:.83rem}.footerbrand{font:600 1.15rem var(--serif)}.danger{color:#8a483e}.notice{margin-top:10px}.reference-link{color:var(--darkpur);text-decoration:underline;text-underline-offset:3px}
+@media(min-width:1550px){.hero{min-height:340px}.hero-copy{padding-top:39px}.card-art{height:135px}}
+@media(max-width:960px){.head{gap:25px}.nav{gap:1px}.nav a{padding:10px}.split{grid-template-columns:minmax(0,1fr) minmax(210px,.44fr)}.grid{gap:13px}.card-body{padding:14px}.card-body h3{font-size:1.5rem}.hero{grid-template-columns:1.12fr .88fr}.hero-copy{padding-right:0}.section-line{align-items:center}footer{margin:0 5vw}}
+@media(max-width:720px){.head{padding:12px 18px;gap:12px;flex-wrap:wrap}.brand{font-size:28px}.brandmark{width:29px;height:29px}.profile{order:1}.nav{order:2;margin-left:auto;gap:0}.nav a{font-size:.84rem;padding:8px;gap:5px}.nav .ico{width:15px;height:15px}.profile{display:none}main{padding-top:19px}.hero{grid-template-columns:1fr .7fr;min-height:0}.hero-copy{padding:25px 0 25px 22px}.hero h1{font-size:clamp(2.2rem,6.4vw,3rem)}.hero p{font-size:.94rem}.hero-graph{padding:0}.hero canvas{height:200px}.section-line{align-items:flex-start;flex-direction:column;margin:25px 0 15px;gap:12px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card-art{height:102px}.split{grid-template-columns:1fr}.ref-grid{grid-template-columns:1fr}.topic-figure{min-height:140px}.topic-copy{padding:20px}.panel{padding:17px}.ref-controls{align-items:stretch}.stats{gap:8px}.stat{padding:12px}.note-row{grid-template-columns:.9fr 1.3fr 2fr auto}.hero::after{left:48%}}
+@media(max-width:490px){.head{padding:10px 15px;justify-content:space-between;gap:5px}.brand{font-size:25px;gap:6px}.nav a{padding:8px 7px}.nav .ico{display:none}main{padding-left:15px;padding-right:15px}.hero{display:block}.hero-copy{padding:23px 19px 0}.hero h1{font-size:2.9rem;margin:12px 0}.hero .button{margin-top:15px}.hero-graph{height:150px;justify-content:end}.hero canvas{width:270px;height:150px}.hero::after{left:0;top:35%;mask-image:linear-gradient(160deg,transparent 8%,#000 90%)}.section-line h2{font-size:2rem}.grid{gap:12px;grid-template-columns:1fr}.card-art{height:117px}.card-body{padding:16px 18px}.card-foot{padding-top:12px}.topic-head{grid-template-columns:1fr}.topic-figure{height:95px;min-height:0}.topic-copy h1{font-size:2.2rem}.study-head{flex-direction:column;gap:0}.study-head>.quiet{align-self:flex-end}.proof-table th,.proof-table td{padding:7px 4px}.proof-table{font-size:.83rem}.proof-table td:last-child{font-size:.94rem}.panel{padding:14px}.seg button{padding:7px 9px}.stats{grid-template-columns:repeat(3,1fr)}.stat small{font-size:.78rem}.note-row{grid-template-columns:1fr 1.5fr auto;border-bottom:1px solid var(--line);padding-bottom:8px}.note-row textarea{grid-row:2;grid-column:1/-1}.note-headers{display:none}footer{font-size:.76rem}.ref-controls .seg{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:21px}.hero .hero-actions .button{margin-top:0}
+.demo{width:100%;max-width:540px;background:#fff;border:1px solid #d8cce9;border-radius:12px;box-shadow:0 10px 30px #4b2f7a14;padding:14px 14px 10px;margin:22px 0}
+.demo-cap{display:flex;justify-content:space-between;align-items:center;gap:10px;font:600 .7rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--darkpur);margin:0 2px 10px}.demo-cap span:last-child{color:#8a8296;letter-spacing:.02em;text-transform:none;font-weight:500}
+.demo table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.8rem}.demo th{font:600 .66rem/1.2 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#7a7286;text-align:left;padding:0 6px 7px;border-bottom:1px solid var(--line)}
+.demo td{padding:7px 6px;border-bottom:1px solid #eeeaf1;vertical-align:top;line-height:1.35;color:#3b3846;overflow-wrap:anywhere}.demo tr:last-child td{border-bottom:0}.demo td:first-child{color:#8a8296;font-family:var(--mono);font-size:.74rem}.demo td:nth-child(2){color:#5d5768}.demo td:last-child{font-family:var(--serif);font-size:.9rem}
+.demo tbody tr{animation:demoIn .45s ease-out both}.demo .slot{display:inline-block;border:1.5px dashed #a58ad0;border-radius:5px;padding:0 6px;background:#f6f1fd;color:var(--darkpur);position:relative}
+.demo .slot b{font-weight:400;animation:demoFill .4s ease-out both;animation-delay:inherit}.demo .slot i{font-style:normal;position:absolute;inset:0 6px;animation:demoHide .2s both;animation-delay:inherit}
+@keyframes demoIn{from{opacity:0;transform:translateY(5px)}}@keyframes demoFill{from{opacity:0}}@keyframes demoHide{to{opacity:0;visibility:hidden}}
+.card .bar{margin:13px 0 0;height:5px}.card .bar>i{background:var(--accent)}
+.group-head{display:flex;align-items:baseline;gap:12px;margin:26px 0 10px}.group-head:first-child{margin-top:0}.group-head h3{font-size:1.35rem}.group-head span{color:var(--sub);font-size:.85rem}
+.form-tag{display:inline-block;font:600 .72rem/1 var(--mono);letter-spacing:.04em;color:var(--darkpur);background:var(--pale);border-radius:4px;padding:3px 6px;margin-right:7px;vertical-align:1px}
+.list-item.done .list-icon{background:#e6f3ec;color:#2f7a55}
+@media(max-width:720px){.hero{display:block}.hero-copy{padding:25px 22px 0}.hero-graph{padding:0 22px 4px;place-items:start}.demo{max-width:none;margin:20px 0}}
+@media(max-width:490px){.hero-graph{height:auto;padding:0 14px 2px}.demo{padding:11px 10px 6px}.demo tbody tr:nth-child(n+6){display:none}.demo td{padding:6px 4px}.demo th{padding:0 4px 6px}.hero-actions{margin-top:15px}}
+@media(prefers-reduced-motion:reduce){.demo tbody tr,.demo .slot b,.demo .slot i{animation:none!important}.demo .slot i{display:none}}
+.demo .demo-no{display:inline-block;min-width:1.3em;font:500 .72rem var(--mono);color:#786887}.lab-links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 0}.lab-entry{border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;gap:13px;background:#fff;padding:17px 19px}.lab-entry:hover{border-color:#b99dce;background:#fcfaff}.lab-entry strong{font:550 1.24rem var(--serif);letter-spacing:-.015em}.lab-entry small{display:block;font-size:.89rem;line-height:1.4;color:var(--sub);margin-top:3px}.lab-entry>.ico{margin-left:auto;color:#80748a}.lab-entry:nth-child(2) .list-icon{background:#e5f1ec;color:#316c60}.lab-draft{min-height:96px;resize:vertical}.write-label{display:block;margin:18px 0 8px;font-weight:600;font-size:.96rem}.written{white-space:pre-wrap;overflow-wrap:anywhere;background:#f7f5f8;border-radius:6px;padding:12px 14px;margin:8px 0 15px}.audit th:nth-child(1){width:12%}.audit th:nth-child(2){width:15%}.audit th:nth-child(3){width:26%}.audit tr.marked{background:var(--pale)}.line-pick{display:inline-grid;place-items:center;background:white;border:1px solid #cbbfd4;border-radius:6px;width:34px;min-height:34px;font:550 .92rem var(--mono)}.line-pick[aria-pressed=true]{background:var(--purple);color:white}.evidence{margin-bottom:16px}.evidence-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:15px 0}.metric{border:1px solid #dfdbe1;border-radius:8px;padding:11px;line-height:1.3;background:#faf9fa}.metric b{display:block;font:550 1.7rem var(--serif)}.metric span{font-size:.86rem}.metric.m-solo{background:#eaf3ee;color:#275b4d}.metric.m-hint{background:#f5efdf;color:#6c5329}.metric.m-model{background:#f1ebf7;color:#67448d}.panel .lab-related{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}.lab-related a{margin:3px 5px 0 0}.panel .statement{white-space:normal}
+@media(max-width:720px){.lab-links{grid-template-columns:1fr;gap:8px}.lab-entry{padding:13px}.evidence-grid{grid-template-columns:1fr 1fr}.audit td,.audit th{padding:7px 4px}}
+@media(max-width:490px){.audit th:nth-child(1){width:14%}.audit th:nth-child(2){width:15%}.audit th:nth-child(3){width:25%}.line-pick{width:31px;min-height:32px}.lab-entry small{font-size:.87rem}}
+
+body{background:radial-gradient(900px 380px at 85% -120px,#efe6fb 0,transparent 70%) no-repeat,var(--bg)}
+.nav[hidden]{display:none!important}.boot{padding:90px 0;text-align:center;color:var(--sub)}
+.profile .avatar{background:linear-gradient(140deg,#efe6fb,#e2d4f6)}
+.pname{max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sync{font-size:.72rem;font-weight:600;padding:3px 8px;border-radius:99px;background:#f1eef4;color:#7d7887;white-space:nowrap}.sync:empty{display:none}.sync.saved{background:#e6f3ec;color:#2f7a55}.sync.error{background:#faeee8;color:#853f32}
+.profile .out{min-height:32px;padding:5px 10px;font-size:.85rem;border:1px solid var(--line)}
+.proof-table th .th-s{display:none}
+.metric.m-retry{background:#fbf1ec;color:#8a4a3a}.metric b{line-height:1.1}
+.sub-h{font-size:1.25rem;margin:24px 0 10px}
+/* talleres */
+.lab-links{margin:0}
+.lab-entry{position:relative;overflow:hidden;align-items:flex-start;padding:20px 22px;gap:16px;background:linear-gradient(135deg,#f5effd 0,#fff 62%);transition:transform .16s,box-shadow .16s,border-color .16s}
+.lab-entry.teal{background:linear-gradient(135deg,#e7f4ee 0,#fff 62%)}
+.lab-entry:hover{transform:translateY(-2px);box-shadow:0 6px 18px #33263b10;background-color:#fff}
+.lab-entry .list-icon{width:48px;height:48px;border-radius:12px;background:#e7dcf8;color:var(--purple)}.lab-entry .list-icon .ico{width:22px;height:22px}
+.lab-entry.teal .list-icon{background:#d5ebe1;color:#316c60}
+.lab-entry strong{display:block}.lab-body{flex:1;min-width:0}
+.lab-meta{display:flex;justify-content:space-between;gap:10px;font-size:.8rem;color:#686471;font-weight:550;margin-top:14px}
+.lab-entry .bar{margin:7px 0 0;height:5px}.lab-entry.teal .bar>i{background:#3f776b}
+.lab-entry>.ico{align-self:center}
+/* acceso */
+.login{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch;margin-top:6px}
+.login-copy{position:relative;overflow:hidden;isolation:isolate;background:#f0ebfa;border:1px solid #d8cce9;border-radius:18px;padding:36px clamp(22px,3vw,44px) 30px}
+.login-copy::after{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(to right,#a58eb62c 1px,transparent 1px),linear-gradient(to bottom,#a58eb62c 1px,transparent 1px);background-size:23px 23px;mask-image:linear-gradient(200deg,#000 10%,transparent 70%)}
+.login-copy h1{font-size:clamp(2.6rem,4.4vw,3.9rem);line-height:.99;margin:16px 0 13px;letter-spacing:-.043em}.login-copy h1 em{color:var(--purple);font-weight:500}
+.login-copy>p{max-width:470px;color:#585060}.login-copy .demo{max-width:none;margin:26px 0 0}
+.login-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px clamp(20px,2.6vw,34px);display:flex;flex-direction:column;box-shadow:0 14px 40px #4b2f7a12}
+.login-card h2{margin:4px 0 4px}.auth-tabs{align-self:flex-start;margin-bottom:18px}.auth-tabs button{padding:7px 16px}
+.login-card .field{min-height:44px}.login-card .write-label{margin:16px 0 7px}.opt{font-weight:500;color:#8a8296;font-size:.82rem;margin-left:4px}
+.login-card .button{margin-top:6px;width:100%;min-height:47px}
+.auth-msg{min-height:1.4em;margin:10px 0 6px;font-size:.9rem;color:#7a4a3e}
+.login-note{display:flex;gap:9px;align-items:flex-start;margin-top:auto;padding-top:20px;font-size:.84rem;line-height:1.45}.login-note .ico{width:16px;height:16px;margin-top:2px;color:var(--purple)}
+.who{margin-top:14px}.who-label{font-size:.84rem;font-weight:600;color:var(--sub);margin-bottom:8px}
+.who-btn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}.who-btn:hover{border-color:#b8a3cb;background:#fdfbff}.who-btn small{display:block;color:var(--sub);font-size:.82rem}.who-btn strong{font-weight:620}.who-btn>.ico{margin-left:auto;color:#8a799b}
+.or{display:flex;align-items:center;gap:10px;color:#8a8296;font-size:.8rem;margin:10px 0 0}.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+@media(max-width:860px){.login{grid-template-columns:1fr}.login-card{order:-1}}
+@media(max-width:720px){.profile{display:flex;order:3;margin-left:4px;gap:6px}.pname,.sync{display:none}.profile .out{padding:4px 8px}}
+@media(max-width:490px){.proof-table th .th-l{display:none}.proof-table th .th-s{display:inline}.profile{order:2;margin-left:auto}.nav{order:3;width:100%;margin:2px 0 0;justify-content:space-between}.nav[hidden]{display:none}.login-copy{padding:26px 20px}.login-copy .demo{display:none}.login-card{padding:24px 18px}.lab-entry{padding:16px;gap:12px}.lab-entry .list-icon{width:40px;height:40px}}
+</style>
+
+</head>
+<body><a class="skip" href="#workspace">Ir al contenido</a><header id="header"></header><main id="workspace" tabindex="-1"></main><footer><span class="footerbrand">Axioma</span><span>Cuaderno de demostraciones matemáticas</span></footer><div id="announce" class="sr" aria-live="polite"></div><script>
+"use strict";
+
+const topics = [
+  ["logic","Silogismos","Conecta premisas y demuestra conclusiones con lógica de conjuntos.","Fundamentos","violet"],
+  ["real","Números reales","Construye igualdades y desigualdades a partir de los axiomas.","Fundamentos","teal"],
+  ["geometry","Geometría","Razona sobre rectas, intersecciones y paralelismo en el plano.","Fundamentos","peach"],
+  ["continuity","Continuidad","Elige un δ que funcione para cualquier ε positivo.","Análisis","blue"],
+  ["derivative","Derivadas","Justifica una derivada desde su cociente incremental.","Análisis","rose"],
+  ["ode","Ecuaciones diferenciales","Verifica soluciones mediante derivación y sustitución.","Análisis","gold"]
+].map(([id,title,desc,group,color])=>({id,title,desc,group,color}));
+
+const levels = [
+  ["Opciones","Elige la referencia, la regla o la conclusión que completa cada paso."],
+  ["Fichas","Reconstruye la columna que falta con fichas en el orden correcto."],
+  ["Huecos","Escribe la parte que falta de cada paso. Puedes insertar símbolos."],
+  ["Prueba completa","Redacta tu propia tabla y compárala con una demostración modelo."]
+];
+const proofs = [];
+const R = (ref, rule, claim, hint, col=2, wrong=[], depth=0) => ({cells:[ref,rule,claim],hint,col,wrong,depth});
+function add(id,topic,title,method,statement,rows,source) {
+  proofs.push({id,topic,title,method,statement,rows,source});
+}
+const quant=(a,b,neg=false)=>`∀x (x ∈ ${a} ⇒ x ${neg?"∉":"∈"} ${b})`;
+const exists=(a,b,neg=false)=>`∃x (x ∈ ${a} ∧ x ${neg?"∉":"∈"} ${b})`;
+const member=(s,neg=false)=>`y ${neg?"∉":"∈"} ${s}`;
+const mp="Modus ponens universal", mt="Modus tollens universal", ei="Instanciación existencial", eg="Generalización existencial";
+const p=(s)=>R("—","Premisa",s,"Puedes copiar una hipótesis del enunciado como punto de partida.",1);
+const arb=R("—","Elemento arbitrario","Sea y arbitrario.","Elige un elemento sin imponerle propiedades particulares.",1);
+const hyp=s=>R("—","Suposición",s,(s.startsWith("¬")||s==="1 ∉ P")?"Abre el bloque con la negación del objetivo.":s.startsWith("m ∩ n")?"Abre una rama con una de las posibilidades de la línea 2.":"Abre el bloque con la condición bajo la cual demostrarás el siguiente paso.",1);
+const sourceLogic="Proofs: Syllogisms, Real Numbers and Geometry · parte I";
+function universal(id,name,fig,p1,p2,neg,first,second) {
+  const mid=member("M",first[2]), end=member("P",neg);
+  add(id,"logic",name,"Directa · figura "+fig,p1+" y "+p2+" ⊨ "+quant("S","P",neg),[
+    p(p1),p(p2),arb,hyp("y ∈ S"),
+    R(first[0]+", 4",first[1],mid,"Relaciona la hipótesis sobre S con la clase intermedia M.",2,[member("M",!first[2]),"S ∈ M"],1),
+    R(second[0]+", 5",second[1],end,"Aplica la otra premisa al mismo elemento.",1,[],1),
+    R("4–6","Prueba condicional","y ∈ S ⇒ "+end,"Cierra la suposición que comenzó en la línea 4.",0),
+    R("3–7","Generalización universal",quant("S","P",neg),"El elemento era arbitrario, así que el resultado vale para todo x.",1)
+  ],sourceLogic);
+}
+universal("barbara","Barbara","1",quant("M","P"),quant("S","M"),false,[2,mp,false],[1,mp]);
+universal("celarent","Celarent","1",quant("M","P",true),quant("S","M"),true,[2,mp,false],[1,mp]);
+universal("cesare","Cesare","2",quant("P","M",true),quant("S","M"),true,[2,mp,false],[1,mt]);
+universal("camestres","Camestres","2",quant("P","M"),quant("S","M",true),true,[2,mp,true],[1,mt]);
+universal("camenes","Camenes","4",quant("P","M"),quant("M","S",true),true,[2,mt,true],[1,mt]);
+
+function particular(id,name,fig,ea,eb,en,ua,ub,un,via,neg,existFirst=false) {
+  const ep=exists(ea,eb,en), up=quant(ua,ub,un);
+  const i=existFirst?1:2, u=3-i;
+  const third=member(ea), fourth=member(eb,en);
+  const derived=via===mt?member(ua,true):member(ub,un);
+  const sline=[third,fourth,derived].indexOf("y ∈ S")+3;
+  const pline=[third,fourth,derived].indexOf(member("P",neg))+3;
+  add(id,"logic",name,"Directa · figura "+fig,(existFirst?ep+" y "+up:up+" y "+ep)+" ⊨ "+exists("S","P",neg),[
+    p(existFirst?ep:up),p(existFirst?up:ep),
+    R(String(i),ei,third,"Usa un testigo nuevo y conserva las dos propiedades que le da la premisa existencial.",1),
+    R(String(i),ei,fourth,"La segunda propiedad pertenece al mismo testigo y.",0),
+    R(u+", "+(via===mt?([third,fourth].indexOf(member(ub,!un))+3):([third,fourth].indexOf(member(ua))+3)),via,derived,"Aplica la premisa universal a la propiedad del testigo.",1),
+    R(sline+", "+pline,"Conjunción","y ∈ S ∧ "+member("P",neg),"Reúne las dos propiedades del mismo elemento.",2,["y ∈ S ∨ "+member("P",neg),"y ∈ S ∧ "+member("P",!neg)]),
+    R("6",eg,exists("S","P",neg),"Un testigo con ambas propiedades demuestra la existencia.",1)
+  ],sourceLogic);
+}
+particular("darii","Darii","1","S","M",false,"M","P",false,mp,false);
+particular("ferio","Ferio","1","S","M",false,"M","P",true,mp,true);
+particular("festino","Festino","2","S","M",false,"P","M",true,mt,true);
+particular("baroco","Baroco","2","S","M",true,"P","M",false,mt,true);
+particular("disamis","Disamis","3","M","P",false,"M","S",false,mp,false,true);
+particular("datisi","Datisi","3","M","S",false,"M","P",false,mp,false);
+particular("bocardo","Bocardo","3","M","P",true,"M","S",false,mp,true,true);
+particular("ferison","Ferison","3","M","S",false,"M","P",true,mp,true);
+particular("dimaris","Dimaris","4","P","M",false,"M","S",false,mp,false,true);
+particular("fresison","Fresison","4","M","S",false,"P","M",true,mt,true);
+
+add("baroco-abs","logic","Baroco por contradicción","Contradicción · figura 2",
+"Todo P es M y algún S no es M. Demuestra que algún S no es P.",[
+p(quant("P","M")),p(exists("S","M",true)),
+R("2",ei,"y ∈ S","Introduce un testigo nuevo para la premisa existencial.",1),
+R("2",ei,"y ∉ M","Conserva la segunda propiedad del mismo testigo.",0),
+hyp("¬∃x (x ∈ S ∧ x ∉ P)"),
+R("5","Negación de cuantificadores y equivalencias",quant("S","P"),"Negar que exista un S fuera de P significa que todo S está en P.",2,["∀x (x ∈ P ⇒ x ∈ S)",exists("S","P")],1),
+R("6, 3",mp,"y ∈ P","La suposición obliga al testigo a estar en P.",1,[],1),
+R("1, 7",mp,"y ∈ M","Usa la primera premisa para situar al testigo en M.",0,[],1),
+R("4, 8","Contradicción","⊥","Se obtuvo y ∈ M junto con y ∉ M.",1,[],1),
+R("5–9","Prueba por contradicción",exists("S","P",true),"Al cerrar el bloque queda demostrada la proposición cuya negación llevó a ⊥.",1)
+],sourceLogic);
+add("bocardo-abs","logic","Bocardo por contradicción","Contradicción · figura 3","Algún M no es P y todo M es S. Demuestra que algún S no es P.",[
+p(exists("M","P",true)),p(quant("M","S")),R("1",ei,"y ∈ M","Escoge un testigo de la primera premisa.",1),R("1",ei,"y ∉ P","y tiene las dos propiedades de la primera premisa.",0),
+R("2, 3",mp,"y ∈ S","Pasa de M a S con la segunda premisa.",1),
+hyp("¬∃x (x ∈ S ∧ x ∉ P)"),R("6","Negación de cuantificadores y equivalencias",quant("S","P"),"Todos los S tendrían que estar en P.",1,[],1),
+R("7, 5",mp,"y ∈ P","Aplica la implicación al testigo que ya está en S.",0,[],1),
+R("4, 8","Contradicción","⊥","El mismo testigo pertenece y no pertenece a P.",1,[],1),
+R("6–9","Prueba por contradicción",exists("S","P",true),"Cierra el bloque de la negación.",1)
+],sourceLogic);
+
+const realSource="Axioms & Definitions · índice de teoremas R y N";
+add("double-negative","real","El opuesto del opuesto","Directa · R2","Para todo a ∈ ℝ, demuestra que −(−a) = a.",[
+R("A5","Inverso aditivo","a + (−a) = 0","Sea a real arbitrario. A5 da su opuesto.",0,["M5","A4"]),
+R("1, A2","Conmutatividad","(−a) + a = 0","Intercambia los sumandos.",1),
+R("2, R1.1","Unicidad del inverso aditivo","a = −(−a)","La línea 2 identifica a como el opuesto de −a.",1),
+R("3","Simetría","−(−a) = a","Invierte el sentido de la igualdad.",0)
+],realSource);
+add("zero","real","El producto por cero","Directa · R3","Sea a ∈ ℝ arbitrario. Demuestra que a · 0 = 0.",[
+R("A4","Identidad aditiva","0 + 0 = 0","Aplica la identidad aditiva al propio cero.",0,["A2","M4"]),
+R("D","Distributividad","a · (0 + 0) = a · 0 + a · 0","Distribuye el factor sobre la suma.",1),
+R("1, 2","Sustitución","a · 0 = a · 0 + a · 0","Reemplaza 0 + 0 por 0 en el miembro izquierdo.",0),
+R("3, A3, A4, A5","Cancelación aditiva","0 = a · 0","Suma el opuesto de a · 0 a ambos lados y simplifica.",1),
+R("4","Simetría","a · 0 = 0","Coloca el producto a la izquierda.",2,["a · 0 = a","a · 1 = 0"])
+],realSource);
+add("minus-one","real","El producto de dos negativos","Directa · R5","Demuestra que (−1) · (−1) = 1.",[
+R("R4","Instanciación universal","(−1) · (−1) = −(−1)","R4 afirma que a · (−1) = −a. Sustituye a por −1.",0,["R3","A4"]),
+R("R2","Instanciación universal","−(−1) = 1","Usa el teorema del doble opuesto con a = 1.",0,["R4","A1"]),
+R("1, 2","Transitividad","(−1) · (−1) = 1","Une las dos igualdades por el término intermedio.",1)
+],realSource);
+add("zero-product","real","Producto nulo","Prueba por casos · R8","Si a · b = 0 en ℝ, demuestra que a = 0 ∨ b = 0.",[
+p("a · b = 0"),R("—","Tercero excluido","a = 0 ∨ a ≠ 0","Separa los casos según el primer factor.",1),
+R("—","Suposición","a = 0","Abre el primer caso.",1),
+R("3","Adición lógica","a = 0 ∨ b = 0","Una disyunción se sigue de su primer término.",0,[],1),
+R("—","Suposición","a ≠ 0","Abre el segundo caso.",1),
+R("1, 5, M5, R3","Multiplicación por el inverso","b = 0","Multiplica ambos lados de ab = 0 por a⁻¹. La línea 5 garantiza su existencia.",1,[],1),
+R("6","Adición lógica","a = 0 ∨ b = 0","El segundo término también basta para una disyunción.",0,[],1),
+R("2, 3–4, 5–7","Prueba por casos","a = 0 ∨ b = 0","Ambos casos establecen la misma conclusión.",1)
+],realSource);
+add("natural","real","Los naturales son positivos","Inducción · N3","Demuestra que todo n ∈ ℕ es positivo. En estos apuntes ℕ empieza en 1.",[
+R("R6","Caso base","1 ∈ P","P es el conjunto de reales positivos. El primer natural es 1.",1),
+R("—","Hipótesis inductiva","Sea k ∈ ℕ arbitrario y supón k ∈ P.","Supón la propiedad únicamente para el índice k.",1),
+R("1, 2, O1","Clausura de los positivos","k + 1 ∈ P","Tanto k como 1 son positivos.",0,[],1),
+R("2–3","Cierre del paso inductivo","∀k ∈ ℕ (k ∈ P ⇒ k + 1 ∈ P)","Descarga la hipótesis y generaliza sobre el natural arbitrario.",1),
+R("1, 4, N2","Inducción matemática","∀n ∈ ℕ (n ∈ P)","El caso base y el paso inductivo cubren todos los naturales.",1)
+],realSource);
+
+const geoSource="Proofs: Syllogisms, Real Numbers and Geometry · parte III, G1";
+add("parallel","geometry","Paralelas a una tercera","Prueba por casos · G1","Sean m y n paralelas a ℓ en el plano. Demuestra que m ∥ n o m = n.",[
+p("m ∥ ℓ ∧ n ∥ ℓ"),R("—","Tercero excluido","m ∩ n = ∅ ∨ m ∩ n ≠ ∅","Divide el argumento según exista un punto de intersección.",1),
+hyp("m ∩ n = ∅"),R("3","Definición de paralelismo","m ∥ n","En estos apuntes las rectas paralelas son disjuntas.",1,[],1),
+R("4","Adición lógica","m ∥ n ∨ m = n","El primer caso ya da uno de los dos términos.",0,[],1),
+hyp("m ∩ n ≠ ∅"),R("6","Elección de un punto","Q ∈ m ∩ n","Usa un testigo de la intersección no vacía.",1,[],1),
+R("1, 7","Definición de paralelismo","Q ∉ ℓ","Q está en m y m no comparte puntos con ℓ.",0,[],1),
+R("1, 7, 8, P5","Unicidad de la paralela","m = n","Por el punto exterior Q pasa una sola paralela a ℓ.",1,[],1),
+R("9","Adición lógica","m ∥ n ∨ m = n","El segundo término basta para el objetivo.",0,[],1),
+R("2, 3–5, 6–10","Prueba por casos","m ∥ n ∨ m = n","Los dos casos agotan todas las posibilidades.",1)
+],geoSource);
+add("symmetric-parallel","geometry","Simetría del paralelismo","Directa","Si ℓ ∥ m, demuestra que m ∥ ℓ.",[
+p("ℓ ∥ m"),R("1","Definición de paralelismo","ℓ ∩ m = ∅","Traduce el paralelismo al lenguaje de conjuntos.",1),
+R("2","Conmutatividad de la intersección","m ∩ ℓ = ∅","El orden de los conjuntos no cambia su intersección.",0),
+R("3","Definición de paralelismo","m ∥ ℓ","Vuelve a expresar la intersección vacía con el símbolo ∥.",2,["m = ℓ","m ∩ ℓ ≠ ∅"])
+],geoSource);
+
+const calc="Práctica de examen · desarrollo para este taller";
+add("continuity-3x","continuity","Continuidad de 3x en 5","Definición ε–δ","Demuestra que f(x) = 3x es continua en x₀ = 5.",[
+R("—","Elección arbitraria","Sea ε > 0.","Debes responder a cualquier tolerancia positiva que te den.",1),
+R("1","Elección de δ","δ = ε/3 > 0","La distancia de salida se amplifica por 3. Divide la tolerancia por ese factor.",2,["δ = 3ε > 0","δ = ε + 3"]),
+hyp("Sea x real con |x − 5| < δ."),
+R("f(x) = 3x","Factorización","|f(x) − f(5)| = 3|x − 5|","Sustituye f(5) = 15 y factoriza antes de estimar.",1,[],1),
+R("2, 3, 4","Acotación","|f(x) − f(5)| < 3δ = ε","Multiplica la desigualdad de entrada por el número positivo 3.",0,[],1),
+R("1–5","Definición de continuidad","f es continua en 5.","Se eligió un δ positivo para cada ε y la cota vale para todo x admisible.",1)
+],calc);
+add("continuity-affine","continuity","Continuidad de ax + b","Definición ε–δ","Para a, b, c ∈ ℝ, demuestra que f(x) = ax + b es continua en c, incluso si a = 0.",[
+R("—","Elección arbitraria","Sea ε > 0.","Fija la tolerancia de salida.",1),
+R("1","Elección de δ","δ = ε/(|a| + 1) > 0","Sumar 1 evita dividir entre cero y da un denominador mayor que |a|.",2,["δ = ε/|a| para todo a","δ = 0"]),
+hyp("Sea x real con |x − c| < δ."),
+R("f(x) = ax + b","Factorización","|f(x) − f(c)| = |a||x − c|","El término b se cancela y a es un factor común.",1,[],1),
+R("2, 3, 4","Acotación","|f(x) − f(c)| ≤ (|a| + 1)|x − c| < ε","El coeficiente aumentado es positivo, aun si a = 0.",0,[],1),
+R("1–5","Definición de continuidad","f es continua en c.","Comprueba el orden de los cuantificadores en la definición.",1)
+],calc);
+add("continuity-square","continuity","Continuidad de ax² + b","Definición ε–δ","Para a, b, c ∈ ℝ, demuestra que f(x) = ax² + b es continua en c.",[
+R("—","Elección arbitraria","Sea ε > 0.","La tolerancia puede ser tan pequeña como se quiera.",1),
+R("1","Elección de δ","δ = mín(1, ε/((|a| + 1)(2|c| + 1)))","Impón a la vez una cota local de 1 y la cota necesaria para ε.",1),
+hyp("Sea x real con |x − c| < δ."),
+R("2, 3","Desigualdad triangular","|x + c| ≤ |x − c| + 2|c| < 1 + 2|c|","Escribe x + c como (x − c) + 2c.",0,[],1),
+R("f(x) = ax² + b","Diferencia de cuadrados","|f(x) − f(c)| = |a||x − c||x + c|","Factoriza x² − c².",1,[],1),
+R("2–5","Acotación","|f(x) − f(c)| ≤ (|a| + 1)(2|c| + 1)|x − c| < ε","La elección del mínimo hace que se cumplan ambas restricciones.",1,[],1),
+R("1–6","Definición de continuidad","f es continua en c.","Cierra el argumento para el punto arbitrario c.",1)
+],calc);
+add("derivative-affine","derivative","Derivada de ax + b","Por definición","Sea f(x) = ax + b. Prueba que f′(c) = a usando el cociente incremental.",[
+R("—","Elección arbitraria","Sea h ≠ 0.","El cociente incremental solo se forma con incrementos distintos de cero.",1),
+R("f(x) = ax + b","Sustitución","f(c + h) − f(c) = a(c + h) + b − (ac + b)","Evalúa la función en los dos puntos.",1),
+R("2","Simplificación algebraica","f(c + h) − f(c) = ah","Se cancelan ac y b.",0),
+R("1, 3","Cancelación","(f(c + h) − f(c))/h = a","La condición h ≠ 0 permite cancelar el factor h.",1),
+R("4","Límite de una constante","lím(h → 0) (f(c + h) − f(c))/h = a","El cociente tiene el mismo valor para todo h distinto de cero.",1),
+R("5","Definición de derivada","f′(c) = a","Identifica el límite con la derivada.",2,["f′(c) = ac","f′(c) = a + b"])
+],calc);
+add("derivative-quadratic","derivative","Derivada de ax² + bx + c","Por definición","Sea f(x) = ax² + bx + c. Demuestra que f′(t) = 2at + b.",[
+R("—","Elección arbitraria","Sea h ≠ 0.","El cociente se estudia cerca de cero, con h distinto de cero.",1),
+R("f(x) = ax² + bx + c","Expansión algebraica","f(t + h) − f(t) = 2ath + ah² + bh","Expande (t + h)² y cancela términos comunes.",1),
+R("1, 2","Cancelación","(f(t + h) − f(t))/h = 2at + ah + b","Extrae y cancela h antes de pasar al límite.",0),
+R("3","Diferencia con el límite","|(f(t + h) − f(t))/h − (2at + b)| = |a||h|","Resta el valor candidato y toma valor absoluto.",1),
+R("4","Estimación ε–δ","Para ε > 0, δ = ε/(|a| + 1) garantiza |a||h| < ε si 0 < |h| < δ.","Usa |a| ≤ |a| + 1 y la desigualdad estricta para |h|.",1),
+R("3–5","Definición de derivada","f′(t) = 2at + b","El cociente se aproxima al candidato con cualquier tolerancia dada.",1)
+],calc);
+add("ode-exp","ode","Una solución exponencial","Verificación directa","Demuestra que y(t) = Ceᵏᵗ satisface y′ = ky para C, k ∈ ℝ constantes.",[
+p("y(t) = Ceᵏᵗ"),R("1","Regla de la cadena","y′(t) = Ckeᵏᵗ","La derivada del exponente kt es k.",2,["y′(t) = Ceᵏᵗ","y′(t) = Ckteᵏᵗ"]),
+R("1","Sustitución","ky(t) = kCeᵏᵗ","Sustituye la función original en el miembro derecho.",0),
+R("2, 3","Conmutatividad y transitividad","y′(t) = ky(t)","Los dos lados coinciden para cada t.",1)
+],calc);
+add("ode-harmonic","ode","El oscilador armónico","Verificación directa","Sea y(t) = A cos(kt) + B sen(kt), con A, B y k constantes. Demuestra que y″ + k²y = 0.",[
+p("y(t) = A cos(kt) + B sen(kt)"),R("1","Regla de la cadena","y′(t) = −Ak sen(kt) + Bk cos(kt)","Deriva ambos términos y multiplica por la derivada interior k.",1),
+R("2","Regla de la cadena","y″(t) = −Ak² cos(kt) − Bk² sen(kt)","Al derivar otra vez ambos términos quedan con signo negativo.",0),
+R("1, 3","Factorización y sustitución","y″(t) = −k²y(t)","Extrae el factor −k² y reconoce la función inicial.",1),
+R("4","Identidad aditiva","y″(t) + k²y(t) = 0","Suma k²y(t) a ambos miembros.",0)
+],calc);
+
+add("one-positive","real","Uno es positivo","Contradicción · R6","Sea P el conjunto de los reales positivos. Demuestra que 1 ∈ P.",[
+R("M4","Axioma","1 ≠ 0","El axioma de identidad multiplicativa distingue 1 de 0.",0,["A5","O1"]),
+hyp("1 ∉ P"),
+R("1, 2, O3","Tricotomía","−1 ∈ P","La tricotomía deja una sola posibilidad si 1 no es positivo y tampoco es cero.",1,[],1),
+R("3, O2","Clausura del producto de positivos","(−1) · (−1) ∈ P","Multiplica el número positivo −1 por sí mismo dentro de este bloque.",0,[],1),
+R("R5","Teorema","(−1) · (−1) = 1","R5 ya se demostró con los axiomas de campo.",0,["R3","R2"],1),
+R("4, 5","Sustitución","1 ∈ P","Reemplaza el producto por el real al que es igual.",0,[],1),
+R("2, 6","Contradicción","⊥","La línea 6 contradice la suposición con la que se obtuvo.",1,[],1),
+R("2–7","Prueba por contradicción","1 ∈ P","Al descartar 1 ∉ P queda el resultado.",1)
+],realSource);
+add("zero-product-abs","real","Producto nulo por contradicción","Contradicción · R8","Supón a · b = 0 con a, b ∈ ℝ. Demuestra que uno de los factores es cero.",[
+p("a · b = 0"),hyp("¬(a = 0 ∨ b = 0)"),
+R("2","Ley de De Morgan","a ≠ 0 ∧ b ≠ 0","Al negar una disyunción se niegan los dos términos.",1,[],1),
+R("3","Separación de conjunción","a ≠ 0","Toma el primer término para poder invertir a.",0,[],1),
+R("3","Separación de conjunción","b ≠ 0","Conserva el segundo término para el cierre del bloque.",0,[],1),
+R("1, 4, M5, R3","Multiplicación por el inverso","b = 0","Multiplica por el inverso de a y usa que cualquier real por cero da cero.",1,[],1),
+R("5, 6","Contradicción","⊥","Se llegó a b = 0 aunque se había deducido b ≠ 0.",1,[],1),
+R("2–7","Prueba por contradicción","a = 0 ∨ b = 0","Descarga la suposición de que ambos son distintos de cero.",1)
+],realSource);
+
+const references = [
+ ["Símbolos","⇒","Implicación","A ⇒ B","Se lee «si A, entonces B». Para probarla, supone A y deduce B."],
+ ["Símbolos","⊨","Consecuencia lógica","A ⇒ B, A ⊨ B","Todo caso que hace verdaderas las premisas también hace verdadera la conclusión."],
+ ["Símbolos","∀","Para todo","∀x (x ∈ S ⇒ x ∈ P)","Cada elemento de S pertenece a P. Empieza la prueba con un elemento arbitrario."],
+ ["Símbolos","∃","Existe","∃x (x ∈ S ∧ x ∉ P)","Hay al menos un elemento de S fuera de P. Para demostrarlo basta encontrar un testigo."],
+ ["Símbolos","∧","Conjunción","A ∧ B","Ambas proposiciones son verdaderas. Se puede extraer cualquiera de ellas."],
+ ["Símbolos","∨","Disyunción","A ∨ B","Al menos una de las dos proposiciones es verdadera. También pueden serlo ambas."],
+ ["Símbolos","¬","Negación","¬(x ∈ A) ≡ x ∉ A","Niega la proposición completa que le sigue. Los paréntesis indican su alcance."],
+ ["Símbolos","⊥","Contradicción","Q ∧ ¬Q ⊨ ⊥","Una proposición y su negación no pueden ser verdaderas al mismo tiempo."],
+ ["Símbolos","∈","Pertenencia","x ∈ A","x es un elemento del conjunto A. En cambio, A ⊆ B relaciona dos conjuntos."],
+ ["Reglas","MP","Modus ponens","A ⇒ B, A ⊨ B","Localiza el antecedente A. Al tener también A ⇒ B puedes escribir B."],
+ ["Reglas","MT","Modus tollens","A ⇒ B, ¬B ⊨ ¬A","Si la consecuencia es falsa, el antecedente también lo es."],
+ ["Reglas","MP₂","Modus ponens universal","∀x (x ∈ A ⇒ x ∈ B), y ∈ A ⊨ y ∈ B","Aplica una afirmación universal al elemento y y usa modus ponens."],
+ ["Reglas","MT₂","Modus tollens universal","∀x (x ∈ A ⇒ x ∈ B), y ∉ B ⊨ y ∉ A","Aplica la implicación a y y usa la negación de su consecuente."],
+ ["Reglas","∀I","Generalización universal","φ(y) ⊨ ∀x φ(x)   (y arbitrario)","y debe ser arbitrario y no aparecer libre en premisas ni en suposiciones abiertas."],
+ ["Reglas","∃E","Instanciación existencial","∃x φ(x)   →   toma un y con φ(y)","Usa un nombre nuevo. La conclusión final debe ser independiente del testigo elegido."],
+ ["Reglas","∃I","Generalización existencial","φ(y) ⊨ ∃x φ(x)","Una propiedad verificada para un testigo basta para demostrar que existe un elemento con ella."],
+ ["Reglas","¬∀","Negación de cuantificadores","¬∀x φ(x) ≡ ∃x ¬φ(x)","Al pasar la negación por un cuantificador, cambia ∀ por ∃ o ∃ por ∀ y niega el predicado."],
+ ["Reglas","⇒I","Prueba condicional","[A … B] ⊨ A ⇒ B","Abre una suposición con A. Después de derivar B, cierra ese bloque y cita su intervalo de líneas."],
+ ["Reglas","⊥","Prueba por contradicción","[¬A … ⊥] ⊨ A","Supón la negación de tu objetivo y úsala para obtener dos afirmaciones incompatibles."],
+ ["Reglas","∨E","Prueba por casos","A ∨ B, A ⇒ C, B ⇒ C ⊨ C","Obtén la misma conclusión C en ambos casos. Luego cierra las dos ramas."],
+ ["Axiomas","A2","Conmutatividad de la suma","a + b = b + a","Puedes intercambiar el orden de dos sumandos reales."],
+ ["Axiomas","A3","Asociatividad de la suma","(a + b) + c = a + (b + c)","Agrupa los sumandos sin alterar su orden."],
+ ["Axiomas","A4","Identidad aditiva","a + 0 = a","Sumar cero conserva el valor de cualquier real."],
+ ["Axiomas","A5","Inverso aditivo","a + (−a) = 0","Cada real admite un opuesto cuya suma con él es cero."],
+ ["Axiomas","D","Distributividad","a(b + c) = ab + ac","Usa la igualdad en un sentido para expandir y en el otro para factorizar."],
+ ["Axiomas","M5","Inverso multiplicativo","a ≠ 0 ⇒ a · a⁻¹ = 1","Comprueba que el factor es distinto de cero antes de usar su inverso."],
+ ["Axiomas","O1","Clausura de los positivos","a, b ∈ P ⇒ a + b ∈ P","La suma de dos números positivos es positiva."],
+ ["Axiomas","N2","Inducción matemática","φ(1), ∀k ∈ ℕ (φ(k) ⇒ φ(k + 1)) ⊨ ∀n ∈ ℕ φ(n)","En este curso los naturales comienzan en 1. Demuestra el caso base y el paso inductivo."],
+ ["Axiomas","P5","Postulado de Playfair","P ∉ ℓ ⇒ existe una única paralela a ℓ por P","Dos paralelas a ℓ que pasan por el mismo punto exterior deben coincidir."],
+ ["Lean 4","→","Aplicar una implicación","example {P Q : Prop} (h : P → Q) (p : P) : Q := h p","h transforma una prueba de P en una prueba de Q. Aplicar h a p corresponde a modus ponens."],
+ ["Lean 4","∧","Construir una conjunción","example {P Q : Prop} (p : P) (q : Q) : P ∧ Q := ⟨p, q⟩","El par contiene las dos demostraciones que se necesitan para construir P ∧ Q."],
+ ["Lean 4","∀","Instanciar una universal","example {α : Type} {P : α → Prop} (h : ∀ x, P x) (a : α) : P a := h a","Al aplicar h al elemento a obtienes la instancia P a."],
+ ["Lean 4","¬","Demostrar modus tollens","example {P Q : Prop} (h : P → Q) (nq : ¬Q) : ¬P := fun p => nq (h p)","Si se supone p, h p produce Q y nq lo lleva a una contradicción."]
+];
+const sources=[
+ ["Demostraciones resueltas","Silogismos, teoremas de los reales y geometría.","libfile_8a2189ebabf48191b7dee411179f1819"],
+ ["Cuaderno de ejercicios","Práctica con espacios en la tabla de demostración.","libfile_f40d9a1dd1a081918908ff02b068adc7"],
+ ["Cuaderno completo","Ejercicios con una casilla por completar en cada línea.","libfile_f0fa594fed8481918e6fc1a839cc98d6"],
+ ["Reglas de inferencia","Guía breve de reglas, equivalencias y subpruebas.","libfile_6736c34d34748191ad19617e8feb8a72"],
+ ["Axiomas y definiciones","Axiomas del curso e índice de teoremas.","libfile_4b0e89bbb9e081918d07415cc1845d56"],
+ ["Demostraciones con Lean 4","Correspondencia entre los pasos formales y Lean.","libfile_d3afed23194081918cb8e522b5ef9b50"]
+];
+
+"use strict";
+const TAU=Math.PI*2;
+function prepareCanvas(canvas,w,h){
+  const width=canvas.clientWidth;
+  const height=canvas.clientHeight;
+  if(!width||!height)return;
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  canvas.width=Math.round(width*dpr);
+  canvas.height=Math.round(height*dpr);
+  const g=canvas.getContext("2d");
+  const s=Math.min(width/w,height/h);
+  g.setTransform(s*dpr,0,0,s*dpr,(width-w*s)*dpr/2,(height-h*s)*dpr/2);
+  g.lineJoin="round";g.lineCap="round";return g;
+}
+function stroke(g,points,color,width=1,dash=[]){
+  g.save();g.strokeStyle=color;g.lineWidth=width;g.setLineDash(dash);g.beginPath();
+  points.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.stroke();g.restore();
+}
+function ellipse(g,x,y,rx,ry,line,fill,tilt=0){
+  g.beginPath();g.ellipse(x,y,rx,ry,tilt,0,TAU);
+  if(fill){g.fillStyle=fill;g.fill()}
+  if(line){g.strokeStyle=line;g.stroke()}
+}
+function label(g,t,x,y,col,size=15){
+  g.fillStyle=col;g.font="italic "+size+"px Georgia, serif";g.fillText(t,x,y)
+}
+function torus(canvas){
+  const g=prepareCanvas(canvas,490,270);if(!g)return;
+  const cx=245,cy=139, axis="#9384af";
+  stroke(g,[[43,205],[448,76]],axis,.8,[4,4]);
+  stroke(g,[[80,64],[413,220]],axis,.8,[4,4]);
+  stroke(g,[[246,245],[246,17]],axis,.9,[4,4]);
+  label(g,"x",450,75,axis,14);label(g,"y",417,225,axis,14);label(g,"z",250,22,axis,14);
+  const sx=0.83, cxr=Math.sqrt(1-sx*sx), ang=-.23, ca=Math.cos(ang),sa=Math.sin(ang);
+  function project(u,v){
+    const rr=99+43*Math.cos(v),x=rr*Math.cos(u),y=rr*Math.sin(u),z=43*Math.sin(v);
+    const b=y*cxr-z*sx,depth=y*sx+z*cxr;
+    return [cx+1.22*(x*ca-b*sa),cy+1.22*(x*sa+b*ca),depth];
+  }
+  const mesh=[],nu=68,nv=32;
+  for(let i=0;i<nu;i++)for(let j=0;j<nv;j++){
+    const u=TAU*i/nu,v=TAU*j/nv;
+    const pts=[project(u,v),project(u+TAU/nu,v),project(u+TAU/nu,v+TAU/nv),project(u,v+TAU/nv)];
+    const light=(.5+.5*(.56*Math.sin(v)-.52*Math.cos(u)*Math.cos(v)-.30*Math.sin(u)*Math.cos(v)));
+    mesh.push({pts,depth:pts.reduce((a,p)=>a+p[2],0)/4,light});
+  }
+  mesh.sort((a,b)=>a.depth-b.depth);
+  for(const q of mesh){
+    g.beginPath();q.pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.closePath();
+    g.fillStyle="hsl(259 72% "+(51+39*q.light)+"%)";g.fill();
+    g.strokeStyle="rgba(76,40,145,.78)";g.lineWidth=.77;g.stroke();
+  }
+  // An unobtrusive leader identifies the mathematical surface.
+  stroke(g,[[334,185],[355,208],[415,208]],"#78629d",.9);
+  ellipse(g,334,185,2,2,null,"#7958b3");
+  label(g,"Toro de revolución",351,224,"#725a91",12);
+}
+const artColors={logic:"#7050b3",real:"#2f8079",geometry:"#ab6b39",continuity:"#456f9c",derivative:"#a35377",ode:"#94752e"};
+function topicArt(el){
+  const id=el.dataset.art, g=prepareCanvas(el,300,126);if(!g)return;
+  const c=artColors[id], soft=c+"17";g.lineWidth=1.4;
+  if(id==="logic"){
+    const circles=[[117,57,"A"],[174,57,"B"],[145,85,"C"]];
+    for(const [x,y] of circles)ellipse(g,x,y,37,37,c,soft);
+    label(g,"A",94,52,c);label(g,"B",186,52,c);label(g,"C",141,104,c);
+    const x=145.5,y=66;ellipse(g,x,y,2.6,2.6,null,c);
+  }else if(id==="real"){
+    stroke(g,[[33,81],[261,81]],c,1.2);
+    const pts=[[63,"−2"],[98,"−1"],[133,"0"],[168,"1"],[203,"2"],[238,"3"]];
+    for(const [x,t] of pts){stroke(g,[[x,77],[x,85]],c,1.1);label(g,t,x-5,103,c,13)}
+    for(const [a,b,k] of [[63,133,35],[133,203,35],[63,203,65]]){
+      g.beginPath();g.moveTo(a,80);g.quadraticCurveTo((a+b)/2,80-k*1.4,b,80);g.strokeStyle=c;g.stroke();
+    }
+    for(const x of [63,133,203])ellipse(g,x,81,3,3,null,c);
+    label(g,"ℝ",247,57,c,18);
+  }else if(id==="geometry"){
+    const corners=[[72,97],[193,23],[232,97],[72,97]];
+    g.beginPath();corners.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.fillStyle=soft;g.fill();
+    stroke(g,corners,c,1.7);stroke(g,[[193,23],[193,97]],c,.9,[3,3]);
+    stroke(g,[[183,97],[183,87],[193,87]],c,1);
+    g.beginPath();g.arc(72,97,25,-.55,0);g.strokeStyle=c;g.stroke();
+    for(const [x,y] of corners.slice(0,3))ellipse(g,x,y,2.8,2.8,null,c);
+    label(g,"A",57,103,c);label(g,"B",189,16,c);label(g,"C",237,102,c);label(g,"θ",101,92,c,13);
+  }else{
+    const isOsc=id==="ode",isDer=id==="derivative",ox=isOsc?54:117,oy=isOsc?66:88;
+    stroke(g,[[34,oy],[267,oy]],c,1);stroke(g,[[ox,109],[ox,16]],c,1);
+    const pts=[];for(let x=42;x<=250;x+=2){
+      let y=isOsc?66-32*Math.sin((x-54)/24):isDer?93-(x-104)**2/280:88-(x-117)*.39;
+      pts.push([x,y]);}
+    stroke(g,pts,c,2);
+    if(isDer){stroke(g,[[128,98],[241,36]],c,1.3,[5,3]);ellipse(g,181,93-(181-104)**2/280,3,3,null,c)}
+    if(id==="continuity"){
+      stroke(g,[[117,58],[193,58],[193,88]],c,1,[4,4]);ellipse(g,193,58,3,3,null,c);label(g,"δ",151,104,c);label(g,"ε",98,70,c)
+    }
+    label(g,isOsc?"t":"x",268,oy+8,c,12);
+  }
+}
+function drawArt(){
+  document.querySelectorAll("canvas[data-art]").forEach(el=>el.dataset.art==="torus"?torus(el):topicArt(el));
+}
+let artFrame;
+window.addEventListener("resize",()=>{cancelAnimationFrame(artFrame);artFrame=requestAnimationFrame(drawArt)});
+
+
+"use strict";
+// A strategy can have several valid routes. Each one has its own first line and rubric.
+const routeChoice = (title,why,model="",criterion="") => ({title,why,model,criterion});
+const proofCases = [
+ {
+  id:"diferencia",topic:"Conjuntos",title:"Una diferencia dentro de otra",related:"",
+  goal:"A ∖ (B ∖ C) = (A ∖ B) ∪ (A ∩ C), para cualesquiera conjuntos A, B y C.",
+  plans:[
+   routeChoice("Seguir a un elemento por equivalencias.","Dos conjuntos son iguales si todo elemento pertenece a uno exactamente cuando pertenece al otro.","Sea x arbitrario. Por definición, x ∈ A ∖ (B ∖ C) ⇔ x ∈ A ∧ ¬(x ∈ B ∧ x ∉ C).","Introduce un elemento arbitrario y traduce la diferencia interior conservando el alcance de la negación."),
+   routeChoice("Demostrar las dos inclusiones.","Cada inclusión te da una dirección de la igualdad.","Para la primera inclusión, sea x ∈ A ∖ (B ∖ C). Entonces x ∈ A y x ∉ B ∖ C.","Empieza con un elemento arbitrario de uno de los lados e indica qué pertenencia quieres deducir. Después tendrás que invertir la dirección."),
+   routeChoice("Probar la igualdad con tres conjuntos concretos.","Un ejemplo puede ayudarte a descubrir la identidad. El enunciado exige que funcione con cualquier A, B y C.")
+  ],
+  lines:[["—","Elemento arbitrario","Sea x arbitrario."],["—","Definición","x ∈ B ∖ C ⇔ (x ∈ B ∧ x ∉ C)."],["2","Negación","x ∉ B ∖ C ⇔ (x ∉ B ∧ x ∈ C)."],["3","Definición","x ∈ A ∖ (B ∖ C) ⇔ (x ∈ A ∧ x ∉ B ∧ x ∈ C)."]],
+  first:2,reasons:["La negación de una conjunción produce una disyunción.","El elemento x tenía que pertenecer a A desde la primera línea.","La diferencia B ∖ C contiene los elementos comunes a B y C."],
+  repair:"x ∉ B ∖ C ⇔ (x ∉ B ∨ x ∈ C).",
+  explain:"La condición x ∈ B ∧ x ∉ C falla si x queda fuera de B o si pertenece a C. Basta con una de esas dos cosas. Por ejemplo, x podría estar fuera de B y también fuera de C."
+ },{
+  id:"barbara",topic:"Silogismos",title:"De S a P pasando por M",related:"barbara",
+  goal:"Todo M es P y todo S es M. Demuestra que todo S es P.",
+  plans:[
+   routeChoice("Seguir un elemento arbitrario de S.","La conclusión habla de cualquier elemento de S. Las dos premisas permiten llevarlo primero a M y luego a P.","Sea y arbitrario y supongamos que y ∈ S.","Elige un elemento sin características especiales y abre la hipótesis y ∈ S."),
+   routeChoice("Buscar un elemento que ya pertenezca a P.","Las premisas no garantizan que P tenga elementos. Además, conocer un miembro de P no prueba una propiedad de todos los S."),
+   routeChoice("Suponer que existe un S que queda fuera de P.","La negación de la conclusión universal te da un testigo concreto para una prueba por contradicción.","Supongamos que existe y tal que y ∈ S e y ∉ P.","Niega la conclusión e identifica dos propiedades simultáneas para el mismo testigo.")
+  ],
+  lines:[["—","Premisa","∀x (x ∈ M ⇒ x ∈ P)."],["—","Premisa","∀x (x ∈ S ⇒ x ∈ M)."],["—","Elemento arbitrario","Sea y arbitrario."],["—","Suposición","y ∈ S."],["1, 4","Modus ponens universal","y ∈ P."]],
+  first:4,reasons:["La línea 1 exige y ∈ M y todavía solo se tiene y ∈ S.","La línea 2 afirma que cada M es un S.","Está prohibido usar una regla universal dentro de una suposición."],
+  repair:"2, 4 · Modus ponens universal · y ∈ M.",
+  explain:"Primero usa S ⇒ M con la línea 4. Con la nueva línea y la premisa 1 podrás obtener y ∈ P."
+ },{
+  id:"baroco",topic:"Silogismos",title:"Un testigo fuera de M",related:"baroco",
+  goal:"Todo P es M y algún S no es M. Demuestra que algún S no es P.",
+  plans:[
+   routeChoice("Elegir un y cualquiera de S y suponer que no pertenece a M.","La segunda premisa garantiza un caso particular. Usar un S arbitrario como si siempre estuviera fuera de M convierte una afirmación existencial en una universal."),
+   routeChoice("Tomar el testigo de la premisa existencial.","Ese elemento ya tiene dos propiedades. La contraposición de P ⇒ M te dará la tercera.","Toma un testigo nuevo y con y ∈ S e y ∉ M.","Usa un nombre nuevo y conserva ambas propiedades del mismo testigo."),
+   routeChoice("Invertir la primera premisa.","Todo P es M permite pasar de P a M. La afirmación inversa necesitaría su propia justificación.")
+  ],
+  lines:[["—","Premisa","∀x (x ∈ P ⇒ x ∈ M)."],["—","Premisa","∃x (x ∈ S ∧ x ∉ M)."],["2","Instanciación existencial","Toma y con y ∈ S e y ∉ M."],["3","Generalización universal","∀x (x ∈ S ⇒ x ∉ M)."]],
+  first:3,reasons:["El testigo representa un caso particular y no se puede generalizar a todos los S.","El nombre y está reservado para las variables universales.","La conclusión final requiere que todos los S estén fuera de M."],
+  repair:"1, 3 · Modus tollens universal · y ∉ P.",
+  explain:"Si y perteneciera a P, la premisa 1 lo colocaría en M. Como el mismo y pertenece a S, ya tienes el testigo para la conclusión existencial."
+ },{
+  id:"producto",topic:"Números reales",title:"Un producto igual a cero",related:"zero-product",
+  goal:"Si a · b = 0 con a, b ∈ ℝ, entonces a = 0 o b = 0.",
+  plans:[
+   routeChoice("Dividir de inmediato entre a.","El número a podría ser cero. Para usar su inverso necesitas una condición que lo descarte."),
+   routeChoice("Distinguir los casos a = 0 y a ≠ 0.","El primer caso cumple directamente la conclusión. En el segundo existe el inverso de a.","Supongamos ab = 0. Distinguimos los casos a = 0 y a ≠ 0.","Declara la hipótesis y dos casos que cubran todas las posibilidades para el primer factor."),
+   routeChoice("Suponer que ambos factores son distintos de cero.","Esa es la negación de la disyunción que quieres demostrar. Ahora sí puedes usar el inverso de a.","Supongamos ab = 0 y, por contradicción, a ≠ 0 y b ≠ 0.","Conserva la hipótesis del producto y niega la disyunción completa.")
+  ],
+  lines:[["—","Premisa","ab = 0."],["1, R3","Producto por cero y sustitución","ab = a · 0."],["2","Cancelación de a","b = 0."],["3","Adición lógica","a = 0 ∨ b = 0."]],
+  first:2,reasons:["Cancelar el factor a exige probar antes que a ≠ 0.","De ab = 0 se deduce que los dos factores son cero.","La multiplicación en ℝ no permite factores negativos."],
+  repair:"Distingue los casos a = 0 y a ≠ 0. Solo en el segundo, multiplica ab = a · 0 por a⁻¹ para obtener b = 0.",
+  explain:"Con a = 0 y b = 2 la premisa sigue siendo verdadera, pero la línea 3 diría que 2 = 0. En ese caso la disyunción se cumple por su primer término."
+ },{
+  id:"paralelas",topic:"Geometría",title:"Dos rectas paralelas a una tercera",related:"parallel",
+  goal:"En el plano euclidiano, m ∥ ℓ y n ∥ ℓ. Prueba que m ∥ n o m = n. En este curso, «paralelas» significa que no comparten puntos.",
+  plans:[
+   routeChoice("Separar los casos en que m y n comparten o no un punto.","Sin intersección obtienes paralelismo por definición. Con un punto común puedes usar la unicidad de la paralela.","Distinguimos los casos m ∩ n = ∅ y m ∩ n ≠ ∅.","Divide el argumento según exista un punto común. Cada caso debe conducir a la misma disyunción."),
+   routeChoice("Empezar eligiendo siempre un punto de m ∩ n.","La intersección puede ser vacía. Solo puedes elegir ese punto dentro de un caso que garantice su existencia."),
+   routeChoice("Afirmar que m y n son distintas porque sus nombres difieren.","Dos símbolos pueden nombrar la misma recta. Precisamente por eso la conclusión incluye la posibilidad m = n.")
+  ],
+  lines:[["—","Premisa","m ∥ ℓ y n ∥ ℓ."],["1","Definición de paralelismo","m ∩ ℓ = ∅ y n ∩ ℓ = ∅."],["2","Intersección","m ∩ n = ∅."],["3","Definición de paralelismo","m ∥ n."]],
+  first:2,reasons:["Ser disjuntas de ℓ no implica que m y n sean disjuntas entre sí.","Dos rectas del plano siempre comparten exactamente un punto.","La definición de paralelismo exige que ambas rectas contengan a ℓ."],
+  repair:"Considera por separado m ∩ n = ∅ y m ∩ n ≠ ∅. Si comparten Q, entonces Q ∉ ℓ y por Playfair hay una única paralela a ℓ que pase por Q. Así m = n.",
+  explain:"El caso m = n satisface las dos premisas y contradice la afirmación de la línea 3. Ese caso explica por qué aparece la igualdad en el objetivo."
+ },{
+  id:"epsilon",topic:"Continuidad",title:"Controlar el error de 3x",related:"continuity-3x",
+  goal:"Demuestra con la definición ε–δ que f(x) = 3x es continua en 5.",
+  plans:[
+   routeChoice("Fijar ε > 0 arbitrario y buscar un δ que dependa de ε.","La definición fija primero la tolerancia de salida. La identidad |3x − 15| = 3|x − 5| permite elegir la tolerancia de entrada.","Sea ε > 0 arbitrario. Elegimos δ = ε/3.","Declara ε arbitrario y elige un δ positivo que garantice la desigualdad para todo x admisible. Un δ más pequeño también sirve."),
+   routeChoice("Trabajar únicamente con ε = 0.01.","Ese valor prueba un caso. La definición exige conseguir una cota para cada ε positivo."),
+   routeChoice("Fijar x = 5 desde el principio.","El valor en 5 es solo una parte de la definición. La cota debe funcionar para todo x suficientemente cercano a 5.")
+  ],
+  lines:[["—","Elección arbitraria","Sea ε > 0."],["1","Elección de δ","Toma δ = 3ε, que es positivo."],["—","Suposición","Sea x con |x − 5| < δ."],["3","Multiplicación por 3","3|x − 5| < 3δ."],["2, 4","Sustitución","3|x − 5| < ε."]],
+  first:4,reasons:["Con el δ elegido, 3δ vale 9ε. La cota de la línea 4 es demasiado grande.","Multiplicar una desigualdad por 3 invierte su sentido.","ε debería ser negativo para que la cota sea estricta."],
+  repair:"De las líneas 2 y 4 se obtiene 3|x − 5| < 9ε. Para cerrar la prueba con ε, cambia la elección de la línea 2 a δ = ε/3 y conserva el argumento posterior.",
+  explain:"Elegir un δ positivo es lícito como intento. La primera inferencia falsa es la línea 5. Con ε = 1, δ = 3 y x = 6 se cumple la hipótesis de la línea 3, pero la distancia de salida es 3."
+ },{
+  id:"cociente",topic:"Derivadas",title:"Derivar t² desde la definición",related:"derivative-quadratic",
+  goal:"Sea f(t) = t². Demuestra desde la definición que f′(c) = 2c.",
+  plans:[
+   routeChoice("Sustituir h = 0 en el cociente incremental.","El cociente tendría denominador cero. La definición usa valores de h que se acercan a cero."),
+   routeChoice("Tomar h ≠ 0 y desarrollar el numerador.","Esto permite cancelar h antes de tomar el límite.","Para h ≠ 0, (f(c+h)−f(c))/h = ((c+h)²−c²)/h.","Escribe el cociente incremental en c y conserva h ≠ 0."),
+   routeChoice("Aplicar directamente la regla de la potencia.","Da el valor correcto, pero la consigna pide deducirlo a partir del límite del cociente incremental.")
+  ],
+  lines:[["—","Elección de incremento","Sea h ≠ 0."],["f(t) = t²","Sustitución","(f(c+h)−f(c))/h = ((c+h)²−c²)/h."],["2","Cuadrado de un binomio","((c+h)²−c²)/h = (c²+h²−c²)/h."],["1, 3","Cancelación","(f(c+h)−f(c))/h = h."]],
+  first:2,reasons:["Falta el término cruzado 2ch al desarrollar (c+h)².","La variable h ya debía valer cero en la línea 1.","Al factorizar debe aparecer c²h²."],
+  repair:"((c+h)²−c²)/h = (2ch+h²)/h = 2c+h, pues h ≠ 0.",
+  explain:"El término 2ch aporta precisamente el 2c que sobrevive al tomar el límite cuando h → 0."
+ },{
+  id:"exponencial",topic:"Ecuaciones diferenciales",title:"Verificar una solución exponencial",related:"ode-exp",
+  goal:"Demuestra que y(t) = C exp(kt) satisface y′ = ky para cualesquiera constantes reales C y k.",
+  plans:[
+   routeChoice("Calcular y′ y comparar con ky en el mismo t.","La ecuación debe cumplirse para cada valor de t. Derivar el exponente introduce el factor k.","Por la regla de la cadena, y′(t) = C exp(kt) · k.","Deriva respecto de t, conserva C como constante y deriva la función interior kt."),
+   routeChoice("Comprobar únicamente la ecuación en t = 0.","Verificar un punto no establece la igualdad de funciones en todo su dominio."),
+   routeChoice("Dividir ambos lados entre C para todos los casos.","La consigna incluye C = 0. Dividir entre C requiere separar antes ese caso.")
+  ],
+  lines:[["—","Función propuesta","y(t) = C exp(kt)."],["1","Sustitución","ky(t) = kC exp(kt)."],["1","Derivación","y′(t) = C exp(kt)."],["2, 3","Comparación","La ecuación solo se cumple si k = 1 o C = 0."]],
+  first:2,reasons:["Al derivar exp(kt) falta multiplicar por la derivada interior k.","La constante C se debe sumar a la derivada.","La derivada del exponente kt es t."],
+  repair:"y′(t) = C exp(kt) · k = kC exp(kt) = ky(t).",
+  explain:"La identidad se cumple para cualquier k real, también para k = 0. En ese caso ambos lados son cero."
+ }
+];
+
+const paths={
+ study:'<path d="M3 4.5c3.2-1 6.3-.3 9 1.6 2.8-1.9 5.9-2.6 9-1.6v14c-3.2-1.1-6.3-.5-9 1.3-2.7-1.8-5.8-2.4-9-1.3z"/><path d="M12 6v13"/>',
+ library:'<path d="M4 4h4v15H4zM10 4h4v15h-4zM16 5l3-1 4 14-3 1z"/>',
+ chart:'<path d="M4 20h16M6 16v-5m6 5V4m6 12V8"/>',
+ play:'<path d="M7 4.8v14.4L19 12z" fill="currentColor" stroke="none"/>',
+ layers:'<path d="m3 8 9-5 9 5-9 5zM3 12l9 5 9-5M3 16l9 5 9-5"/>',
+ pen:'<path d="m4 16 12-12 4 4L8 20l-5 1zM13 7l4 4"/>',
+ chevron:'<path d="m9 5 7 7-7 7"/>',
+ open:'<path d="M8 5h11v11M19 5 5 19"/>',
+ file:'<path d="M5 3h9l5 5v13H5zM14 3v6h5M8 13h8m-8 4h6"/>',
+ check:'<path d="m4 12 5 5L20 6"/>',
+ spark:'<path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/>',
+ search:'<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/>',
+ flag:'<path d="M5 21V4c6-4 8 4 15 0v10c-7 4-9-4-15 0"/>',
+ bulb:'<path d="M9 18h6m-5 3h4M8 14a6.5 6.5 0 1 1 8 0c-1 1-1.5 2-1.5 3h-5c0-1-.5-2-1.5-3z"/>',
+ close:'<path d="m6 6 12 12M18 6 6 18"/>',
+ reset:'<path d="M3 5v6h6M4 10a8 8 0 1 1 1 8"/>',
+ target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'
+};
+function icon(name){return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+paths[name]+'</svg>'}
+function esc(t){return String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+/* ================= GUARDADO EN LÍNEA (Supabase) =================
+ Pega aquí la "Project URL" y la clave "anon public" de tu proyecto
+ (Supabase → Project Settings → API). La clave anon es pública: la protegen
+ las reglas de la tabla (RLS). Si dejas los dos campos vacíos, Axioma funciona
+ en modo local y el avance se guarda solo en este navegador.
+
+ SQL para crear la tabla (Supabase → SQL Editor → Run):
+   create table public.progress (
+     user_id uuid primary key references auth.users(id) on delete cascade,
+     data jsonb not null default '{}'::jsonb,
+     updated_at timestamptz not null default now()
+   );
+   alter table public.progress enable row level security;
+   create policy "leer mi progreso" on public.progress
+     for select using (auth.uid() = user_id);
+   create policy "crear mi progreso" on public.progress
+     for insert with check (auth.uid() = user_id);
+   create policy "actualizar mi progreso" on public.progress
+     for update using (auth.uid() = user_id) with check (auth.uid() = user_id);
+================================================================== */
+const CLOUD={url:"",anonKey:""};
+
+const root=document.querySelector("main"),LEGACY="axioma.study.v1",SESSION="axioma.session",USERS="axioma.users";
+const blankState=()=>({done:{},errors:{},runs:{},last:null,notes:{},help:{},evidence:{},workshops:{}});
+let data=blankState(),key=null,user=null,sb=null,booted=false,syncState="",pushTimer=null,pushing=false,pushAgain=false,authTab="login",authMsg="",authBusy=false;
+let saveFailed=false;
+const cloudOn=()=>!!(CLOUD.url&&CLOUD.anonKey);
+function readLS(k){try{return JSON.parse(localStorage.getItem(k))}catch{return null}}
+function writeLS(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,JSON.stringify(v));return true}catch{return false}}
+function niceName(n,email){n=String(n||"").trim()||String(email||"").split("@")[0].split(/[._\-+]/)[0]||"Estudiante";return n.charAt(0).toUpperCase()+n.slice(1)}
+function initial(u){return String(u?.name||u?.email||"?").charAt(0).toUpperCase()}
+function knownUsers(){const u=readLS(USERS);return Array.isArray(u)?u:[]}
+function remember(u){writeLS(USERS,[{email:u.email,name:u.name},...knownUsers().filter(x=>x.email!==u.email)].slice(0,6))}
+function adopt(u,remote){
+ user=u;key=LEGACY+":"+u.id;remember(u);
+ let saved=remote||readLS(key);
+ if(!saved){const legacy=readLS(LEGACY);if(legacy){saved=legacy;writeLS(LEGACY,null)}}
+ data=Object.assign(blankState(),saved||{});writeLS(key,data);
+}
+function save(){
+ if(!user)return;
+ data._t=Date.now();
+ if(!writeLS(key,data)&&!saveFailed){saveFailed=true;announce("El navegador no permite guardar el avance.")}
+ if(sb){clearTimeout(pushTimer);pushTimer=setTimeout(pushCloud,700);setSync("saving")}
+}
+const syncLabels={saving:"Guardando…",saved:"Guardado",error:"Sin conexión"};
+function setSync(st){syncState=st;const el=document.querySelector("#sync");if(el){el.className="sync "+st;el.textContent=syncLabels[st]||""}}
+async function pushCloud(){
+ if(!sb||!user)return;
+ if(pushing){pushAgain=true;return}
+ pushing=true;clearTimeout(pushTimer);setSync("saving");
+ const who=user.id;let failed=false;
+ try{const {error}=await sb.from("progress").upsert({user_id:who,data,updated_at:new Date().toISOString()});if(error)failed=true}catch{failed=true}
+ pushing=false;
+ if(!user||user.id!==who)return;
+ if(failed){setSync("error");pushTimer=setTimeout(pushCloud,8000);return}
+ if(pushAgain){pushAgain=false;pushCloud()}else setSync("saved");
+}
+function loadScript(src){return new Promise((ok,fail)=>{const el=document.createElement("script");el.src=src;el.onload=ok;el.onerror=fail;document.head.appendChild(el)})}
+async function enterCloud(u){
+ const name=niceName(u.user_metadata?.name,u.email);
+ let remote=null,reached=false;
+ try{const {data:row,error}=await sb.from("progress").select("data").eq("user_id",u.id).maybeSingle();if(error)throw error;remote=row?.data||null;reached=true}catch{}
+ const cached=readLS(LEGACY+":"+u.id);
+ const pick=remote&&cached?((cached._t||0)>(remote._t||0)?cached:remote):remote;
+ adopt({id:u.id,email:u.email,name},pick);
+ if(!reached)setSync("error");else if(pick!==remote||!remote)pushCloud();else setSync("saved");
+}
+async function boot(){
+ if(cloudOn()){
+  try{await loadScript("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2");sb=window.supabase.createClient(CLOUD.url,CLOUD.anonKey)}
+  catch{sb=null;authMsg="No se pudo conectar con el servidor de Axioma. Revisa tu conexión y recarga la página."}
+  if(sb){
+   try{const {data:{session}}=await sb.auth.getSession();if(session)await enterCloud(session.user)}catch{}
+   try{sb.auth.onAuthStateChange(ev=>{if(ev==="SIGNED_OUT"&&user){user=null;key=null;data=blankState();render()}})}catch{}
+  }
+ }else{
+  const ses=readLS(SESSION);if(ses?.email)adopt({id:ses.email,email:ses.email,name:niceName(ses.name,ses.email)});
+ }
+ booted=true;render();
+}
+function authError(e){const m=String(e?.message||e||"");
+ if(/invalid login credentials/i.test(m))return "Correo o contraseña incorrectos.";
+ if(/already registered|already exists/i.test(m))return "Ese correo ya tiene cuenta. Usa «Entrar».";
+ if(/not confirmed/i.test(m))return "Confirma tu correo con el enlace que te llegó y vuelve a intentarlo.";
+ if(/password/i.test(m))return "Elige una contraseña de al menos 6 caracteres.";
+ if(/fetch|network|failed to/i.test(m))return "No hay conexión con el servidor. Intenta de nuevo.";
+ if(/rate limit/i.test(m))return "Demasiados intentos seguidos. Espera un momento.";
+ return "No se pudo completar: "+m}
+async function submitAuth(form){
+ const email=form.email.value.trim().toLowerCase(),pass=form.password?form.password.value:"",name=form.elements.name?form.elements.name.value:"";
+ const submit=form.querySelector('button[type="submit"]');
+ const say=t=>{authMsg=t;const el=root.querySelector("#auth-msg");if(el)el.textContent=t};
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){say("Escribe un correo válido.");form.email.focus();return}
+ if(!sb){if(cloudOn()){say("Sin conexión con el servidor. Recarga la página.");return}
+  const u={id:email,email,name:niceName(name||knownUsers().find(x=>x.email===email)?.name,email)};writeLS(SESSION,u);adopt(u);authMsg="";go("home");return}
+ if(pass.length<6){say("La contraseña debe tener al menos 6 caracteres.");form.password.focus();return}
+ authBusy=true;submit.disabled=true;say(authTab==="signup"?"Creando tu cuenta…":"Entrando…");
+ try{
+  const res=authTab==="signup"?await sb.auth.signUp({email,password:pass,options:{data:{name:niceName(name,email)}}}):await sb.auth.signInWithPassword({email,password:pass});
+  if(res.error)throw res.error;
+  if(!res.data.session){authTab="login";say("Te enviamos un correo para confirmar tu cuenta. Confírmala y luego entra aquí.");return}
+  await enterCloud(res.data.session.user);authMsg="";go("home");
+ }catch(e){say(authError(e))}
+ finally{authBusy=false;if(submit.isConnected)submit.disabled=false}
+}
+async function signOut(){
+ clearTimeout(pushTimer);
+ if(sb&&user){try{if(syncState!=="saved")await pushCloud()}catch{}try{await sb.auth.signOut()}catch{}}
+ else writeLS(SESSION,null);
+ user=null;key=null;data=blankState();syncState="";authMsg="";
+ history.replaceState(null,"","#/home");render();
+}
+function authPage(){
+ const users=knownUsers(),local=!sb,signup=!local&&authTab==="signup";
+ const quick=local&&users.length?'<div class="who"><p class="who-label">Continuar como</p>'+users.map((u,i)=>'<button type="button" class="who-btn" data-act="as-user" data-i="'+i+'"><span class="avatar">'+esc(initial(u))+'</span><span><strong>'+esc(u.name)+'</strong><small>'+esc(u.email)+'</small></span>'+icon("chevron")+'</button>').join("")+'<div class="or"><span>o entra con otro correo</span></div></div>':"";
+ const tabs=local?"":'<div class="seg auth-tabs">'+[["login","Entrar"],["signup","Crear cuenta"]].map(([k,t])=>'<button type="button" data-act="auth-tab" data-k="'+k+'" aria-pressed="'+(authTab===k)+'">'+t+'</button>').join("")+'</div>';
+ return '<section class="login"><div class="login-copy"><div class="eyebrow">'+icon("pen")+' Cuaderno de estudio</div><h1>Bienvenido a<br><em>Axioma</em></h1><p>'+(local?"Entra con tu correo para llevar tu propio avance en demostraciones, talleres y repasos.":"Entra con tu correo. Tu avance se guarda en tu cuenta y lo recuperas desde cualquier computadora o celular.")+'</p>'+demoTable()+'</div>'+
+ '<div class="login-card">'+tabs+'<h2>'+(signup?"Crea tu cuenta":local&&users.length?"¿Quién estudia hoy?":"Entra a tu cuenta")+'</h2>'+quick+
+ '<form id="auth-form" novalidate>'+(signup||local?'<label class="write-label" for="name">Nombre'+(local?' <span class="opt">opcional</span>':'')+'</label><input class="field" id="name" name="name" autocomplete="given-name" placeholder="¿Cómo te llamamos?">':"")+
+ '<label class="write-label" for="email">Correo</label><input class="field" id="email" name="email" type="email" autocomplete="email" required placeholder="tu@correo.com" value="'+(local?"":esc(users[0]?.email||""))+'">'+
+ (local?"":'<label class="write-label" for="password">Contraseña</label><input class="field" id="password" name="password" type="password" autocomplete="'+(signup?"new-password":"current-password")+'" required placeholder="'+(signup?"Mínimo 6 caracteres":"Tu contraseña")+'">')+
+ '<p class="auth-msg" id="auth-msg" role="status">'+esc(authMsg)+'</p><button class="button" type="submit">'+icon("play")+(signup?"Crear cuenta":"Entrar")+'</button></form>'+
+ '<p class="login-note">'+icon(local?"file":"check")+'<span>'+(local?"Modo local: el avance se guarda en este navegador, separado para cada correo.":"Tu progreso se guarda en línea y se sincroniza solo.")+'</span></p></div></section>'
+}
+function announce(t){document.querySelector("#announce").textContent=t}
+const byId=id=>proofs.find(p=>p.id===id),byTopic=id=>topics.find(t=>t.id===id),topicProofs=id=>proofs.filter(p=>p.topic===id);
+const modesDone=id=>[1,2,3,4].filter(n=>data.done[id+"@"+n]).length;
+const flowKey=(id,n)=>id+"@"+n;
+const courseFilter=["Todos","Fundamentos","Análisis"];
+const letters=["A","B","C"];
+let homeFilter="Todos", refFilter="Símbolos", searchTerm="", selection=null, showHint=false, feedback=null,tiles=[],answerText="",docCompare=false,photo=null,setupLevel=1,setupId=null,practiceKey="",reviewId="";
+function href(path){return "#/"+path}
+function go(path){if(location.hash===href(path))render();else location.hash=href(path)}
+function route(){return location.hash.replace(/^#\/?/,"").split("/").map(v=>{try{return decodeURIComponent(v)}catch{return ""}})}
+function link(text,path,cls="outline",ico=""){return '<a class="'+cls+'" href="'+href(path)+'">'+(ico?icon(ico):"")+esc(text)+'</a>'}
+function btn(text,act,cls="button",ico="",extra=""){return '<button type="button" class="'+cls+'" data-act="'+act+'" '+extra+'>'+(ico?icon(ico):"")+esc(text)+'</button>'}
+function crumbs(items){return '<nav class="crumbs" aria-label="Ruta">'+items.map(([t,h])=>h?'<a href="'+href(h)+'">'+esc(t)+'</a>':'<span>'+esc(t)+'</span>').join(icon("chevron"))+'</nav>'}
+function segment(items,sel,action){return '<div class="seg">'+items.map((x,i)=>'<button type="button" data-act="'+action+'" data-i="'+i+'" aria-pressed="'+(sel===x)+'">'+esc(x)+'</button>').join("")+'</div>'}
+function progressBar(n,m){return '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="'+m+'" aria-valuenow="'+n+'" aria-label="Avance"><i style="width:'+Math.round(100*n/(m||1))+'%"></i></div>'}
+function renderHeader(page){
+ const nav=[["home","Estudio","study"],["ref","Referencias","library"],["progress","Mi progreso","chart"]];
+ const active=["progress","review","reforzar"].includes(page)?"progress":page==="ref"?"ref":"home";
+ document.querySelector("header").innerHTML='<div class="head"><a class="brand" href="#/home" aria-label="Axioma, inicio"><img class="brandmark" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMTAiIGZpbGw9IiM3MDQ2YzEiLz48ZyBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMi4zIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxwYXRoIGQ9Ik0yMCA2djI4TTYgMjBoMjhNMTAgMTBsMjAgMjBNMTAgMzBsMjAtMjBNMTQuNiA3bDEwLjggMjZNNyAyNS40bDI2LTEwLjhNNyAxNC42bDI2IDEwLjhNMTQuNiAzM2wxMC44LTI2Ii8+PC9nPjwvc3ZnPgo=" alt="">Axioma</a><nav class="nav" aria-label="Principal"'+(user?"":" hidden")+'>'+nav.map(([p,t,i])=>'<a href="#/'+p+'" class="'+(active===p?"active":"")+'" '+(active===p?'aria-current="page"':"")+'>'+icon(i)+t+'</a>').join("")+'</nav><div class="profile">'+(user?'<span class="avatar" title="'+esc(user.email)+'">'+esc(initial(user))+'</span><span class="pname">'+esc(user.name)+'</span>'+(sb?'<span id="sync" class="sync '+syncState+'">'+(syncLabels[syncState]||"")+'</span>':"")+'<a class="quiet out" href="#/logout">Salir</a>':"")+'</div></div>';
+}
+function demoTable(){
+ const p=byId("barbara");if(!p)return "";
+ const rows=p.rows.slice(0,7),blank=4;
+ return '<div class="demo" role="region" aria-label="Ejemplo de demostración en tres columnas"><div class="demo-cap"><span>Así se ve una prueba</span><span>Barbara · AAA-1</span></div><table><colgroup><col style="width:15%"><col style="width:37%"><col style="width:48%"></colgroup><thead><tr><th>Ref.</th><th>Regla</th><th>Conclusión</th></tr></thead><tbody>'+rows.map((r,k)=>{
+  const d='style="animation-delay:'+(0.25+k*0.32).toFixed(2)+'s"';
+  const last=k===blank?'<span class="slot" style="animation-delay:'+(0.25+rows.length*0.32+0.5).toFixed(2)+'s"><i>?</i><b>'+esc(r.cells[2])+'</b></span>':esc(r.cells[2]);
+  return '<tr '+d+'><td>'+esc(r.cells[0])+'</td><td>'+esc(r.cells[1])+'</td><td><span class="demo-no">'+(k+1)+'.</span>'+last+'</td></tr>';
+ }).join("")+'</tbody></table></div>';
+}
+function topicStats(id){const ps=topicProofs(id);return {ps,n:ps.reduce((a,p)=>a+modesDone(p.id),0),m:ps.length*4}}
+function home(){
+ const last=data.last, active=last&&byId(last.id)&&data.runs[flowKey(last.id,last.level)];
+ const t=active?byId(last.id):null;
+ const primary=active?link("Continuar: "+t.title+" · nivel "+last.level,"practice/"+t.id+"/"+last.level,"button","play"):link("Empezar con Barbara","setup/barbara","button","play");
+ return '<section class="hero"><div class="hero-copy"><div class="eyebrow">'+icon("pen")+' Hola, '+esc(user.name)+'</div><h1>Taller de<br><em>demostraciones</em></h1><p>Cada prueba es una tabla de tres columnas: referencia, regla y conclusión. Tú completas lo que falta, paso a paso, desde las premisas hasta la conclusión.</p><div class="hero-actions">'+primary+btn("Ver todos los temas","themes","outline")+'</div></div><div class="hero-graph">'+demoTable()+'</div></section>'+
+ '<section aria-labelledby="themes"><div class="section-line"><div><h2 id="themes" tabindex="-1">Temas de estudio</h2><p>Elige un tema para practicar sus demostraciones.</p></div>'+segment(courseFilter,homeFilter,"group")+'</div><div class="grid">'+topics.filter(t=>homeFilter==="Todos"||t.group===homeFilter).map(t=>{
+ const {ps,n,m}=topicStats(t.id),pct=Math.round(100*n/(m||1));
+ return '<a class="card '+t.color+'" href="#/topic/'+t.id+'"><div class="card-art"><canvas aria-hidden="true" data-art="'+t.id+'"></canvas></div><div class="card-body"><h3>'+t.title+'</h3><p>'+t.desc+'</p><div class="card-foot"><span class="small-icon">'+icon("layers")+ps.length+' demostraciones · '+(n?(n===m?"completo":pct+"%"):"sin empezar")+'</span><span class="open-icon">'+icon(m&&n===m?"check":"chevron")+'</span></div>'+progressBar(n,m)+'</div></a>';
+ }).join("")+'</div></section>'+labMenuCards();
+}
+function listRow(title,sub,target,ico="file",cls=""){return '<a class="list-item'+(cls?" "+cls:"")+'" href="#/'+target+'"><span class="list-icon">'+icon(ico)+'</span><span><strong>'+esc(title)+'</strong><small>'+esc(sub)+'</small></span>'+icon("chevron")+'</a>'}
+function syllForm(p){const fig=(p.method.match(/figura (\d)/)||[])[1],v=p.title.split(" ")[0].toLowerCase().replace(/[^aeio]/g,"").slice(0,3).toUpperCase();return v.length===3&&fig?v+"-"+fig:""}
+function proofRow(p,logic){const d=modesDone(p.id),form=logic?syllForm(p):"";
+ return listRow(p.title,(logic?p.method.split(" · ")[0]:p.method)+" · "+p.rows.length+" pasos · "+(d===4?"completa":d+"/4 niveles"),"setup/"+p.id,d===4?"check":"file",d===4?"done":"").replace('<small>','<small>'+(form?'<span class="form-tag">'+form+'</span>':''))}
+function topic(t){
+ const list=topicProofs(t.id),logic=t.id==="logic";
+ let body;
+ if(logic){
+  const groups=[["Figura 1","El término medio es sujeto de la mayor y predicado de la menor.",p=>/^Directa · figura 1/.test(p.method)],["Figura 2","El término medio es predicado en ambas premisas.",p=>/^Directa · figura 2/.test(p.method)],["Figura 3","El término medio es sujeto en ambas premisas.",p=>/^Directa · figura 3/.test(p.method)],["Figura 4","El término medio es predicado de la mayor y sujeto de la menor.",p=>/^Directa · figura 4/.test(p.method)],["Por contradicción","Supón la negación de la conclusión y llega a un absurdo.",p=>!/^Directa/.test(p.method)]];
+  body=groups.map(([h,d,f])=>{const ps=list.filter(f);return ps.length?'<div class="group-head"><h3>'+h+'</h3><span>'+d+'</span></div><div class="list">'+ps.map(p=>proofRow(p,true)).join("")+'</div>':""}).join("");
+ } else body='<div class="list">'+list.map(p=>proofRow(p,false)).join("")+'</div>';
+ return crumbs([["Estudio","home"],[t.title]])+'<section class="topic-head '+t.color+'"><div class="topic-copy"><div class="eyebrow">'+esc(t.group)+'</div><h1>'+t.title+'</h1><p>'+t.desc+'</p></div><div class="topic-figure"><canvas data-art="'+t.id+'" aria-hidden="true"></canvas></div></section><div class="section-line"><h2>Demostraciones</h2><span class="meta">'+list.length+' ejercicios</span></div>'+body
+}
+const labModes={inicio:"¿Cómo empiezo?",error:"Encuentra el primer error"};
+const caseById=id=>proofCases.find(c=>c.id===id);
+const orderFor=(c,mode,size)=>shuffled(Array.from({length:size},(_,i)=>i),hash("taller/"+mode+"/"+c.id));
+const labDone=m=>proofCases.filter(c=>data.workshops[m+"/"+c.id]?.finished).length;
+function labMenuCards(){
+ const total=proofCases.length;
+ return '<section aria-labelledby="labs"><div class="section-line"><div><h2 id="labs">Talleres de razonamiento</h2><p>Lo que no sale en la tabla: por dónde empezar y cómo detectar un error.</p></div></div><div class="lab-links">'+
+  [["inicio","flag","Elige una estrategia y escribe la primera línea.","violet"],["error","search","Localiza un paso inválido, explica la falla y corrígelo.","teal"]]
+  .map(([mode,symbol,desc,tone])=>{const n=labDone(mode);return '<a class="lab-entry '+tone+'" href="#/taller/'+mode+'"><span class="list-icon">'+icon(symbol)+'</span><span class="lab-body"><strong>'+labModes[mode]+'</strong><small>'+desc+'</small><span class="lab-meta"><span>'+total+' casos</span><span>'+(n===total?"todos revisados":n?n+" de "+total+" revisados":"sin empezar")+'</span></span>'+progressBar(n,total)+'</span>'+icon("chevron")+'</a>'}).join("")+'</div></section>';
+}
+function caseState(mode,id){const k=mode+"/"+id;return data.workshops[k]??={stage:0,choice:null,notes:"",diagnosis:null,correction:"",message:"",finished:false}}
+function labList(mode){
+ return crumbs([["Estudio","home"],[labModes[mode]]])+'<div class="page-title"><h1>'+labModes[mode]+'</h1><p>'+(mode==="inicio"?"Elige cómo atacar el enunciado. Después redacta y compara tu primera línea.":"Lee cada intento en orden. Busca la primera línea que sus referencias dejan sin justificar.")+'</p></div><div class="list">'+
+ proofCases.map(c=>{const s=data.workshops[mode+"/"+c.id];return listRow(c.title,c.topic+" · "+(s?.finished?"Revisado":s?.stage||s?.choice!=null?"En curso":"Por practicar"),"taller/"+mode+"/"+c.id,s?.finished?"check":"pen",s?.finished?"done":"")}).join("")+'</div>'
+}
+function labChoices(c,mode,kind,choices,selected){return '<div class="choices">'+orderFor(c,mode+kind,choices.length).map((idx,k)=>'<button data-act="'+kind+'" data-i="'+idx+'" class="choice" type="button" aria-pressed="'+(selected===idx)+'"><span>'+String.fromCharCode(65+k)+'</span><span>'+esc(choices[idx])+'</span></button>').join("")+'</div>'}
+function auditTable(c,s,selectable){
+ return '<table class="proof-table audit"><thead><tr><th scope="col">Línea</th>'+colnames.map(thCol).join("")+'</tr></thead><tbody>'+
+ c.lines.map((row,i)=>'<tr'+(s.choice===i?' class="marked"':"")+'><td>'+(selectable?btn(String(i+1),"pick-line","line-pick","","data-i="+i+' aria-label="Elegir línea '+(i+1)+'" aria-pressed="'+(s.choice===i)+'"'):String(i+1))+'</td>'+row.map(cell=>'<td>'+esc(cell)+'</td>').join("")+'</tr>').join("")+'</tbody></table>'
+}
+function labTextArea(id,label,value){
+ return '<label class="write-label" for="'+id+'">'+label+'</label><textarea class="lab-draft" id="'+id+'" rows="3" placeholder="Escribe con tus palabras o usa símbolos…">'+esc(value)+'</textarea>'
+}
+function modelCheck(answer,criterion,mine){
+ return '<section class="panel"><h2>Compara tu razonamiento</h2><h3>Tu respuesta</h3><p class="written">'+esc(mine)+'</p><h3>Una respuesta posible</h3><p class="statement">'+esc(answer)+'</p><p>'+esc(criterion)+'</p><div class="actions">'+btn("Mi respuesta cumple el criterio","lab-done","button","check")+btn("Revisar lo que escribí","lab-edit","outline","pen")+'</div></section>';
+}
+function labExercise(mode,c){
+ const s=caseState(mode,c.id),start=mode==="inicio",title=labModes[mode],currentChoice=c.plans[s.choice];
+ const intro=crumbs([["Estudio","home"],[title,"taller/"+mode],[c.title]])+'<div class="page-title"><div class="eyebrow">'+esc(c.topic)+'</div><h1>'+esc(c.title)+'</h1><p>'+title+'</p></div><div class="statement"><strong>Por demostrar.</strong> '+esc(c.goal)+'</div>';
+ if(s.finished){
+  const next=proofCases.find(other=>other.id!==c.id&&!data.workshops[mode+"/"+other.id]?.finished);
+  return intro+'<section class="panel"><h2>Ejercicio revisado</h2><p class="written">'+esc(start?s.notes:s.correction)+'</p><div class="actions">'+(next?link("Siguiente ejercicio","taller/"+mode+"/"+next.id,"button","play"):link("Ver todos los ejercicios","taller/"+mode,"button"))+btn("Volver a practicar","lab-again","outline","reset")+(c.related?link("Abrir demostración guiada","setup/"+c.related,"quiet"):"")+'</div></section>';
+ }
+ const msg=s.message?'<div class="feedback bad" role="status">'+esc(s.message)+'</div>':"";
+ let body;
+ if(start){
+  if(s.stage===0)body='<section class="panel"><h2>¿Qué estrategia te permite empezar?</h2><p>Elige una ruta que puedas justificar.</p>'+labChoices(c,mode,"pick-plan",c.plans.map(o=>o.title),s.choice)+msg+'<div class="actions">'+btn("Comprobar estrategia","lab-check","button","check",s.choice===null?"disabled":"")+'</div></section>';
+  else if(s.stage===1)body='<section class="panel"><h2>Escribe tu primera línea</h2><div class="feedback good"><strong>'+esc(currentChoice.title)+'</strong> '+esc(currentChoice.why)+'</div>'+labTextArea("lab-notes","¿Qué escribirías en el examen para abrir esta ruta?",s.notes)+msg+'<div class="actions">'+btn("Comparar mi primera línea","lab-compare","button")+btn("Cambiar estrategia","lab-back","quiet")+'</div></section>';
+  else body=modelCheck(currentChoice.model,currentChoice.criterion,s.notes);
+ }else{
+  const table='<section class="panel"><h2>Intento de demostración</h2>'+(s.stage===0?'<p>Selecciona el número de la primera línea injustificada.</p>':"")+auditTable(c,s,s.stage===0)+'</section>';
+  if(s.stage===0)body=table+'<div class="actions">'+btn("Comprobar línea","lab-check","button","check",s.choice===null?"disabled":"")+'</div>'+msg;
+  else if(s.stage===1) body=table+'<section class="panel"><h2>¿Qué falla en la línea '+(c.first+1)+'?</h2>'+labChoices(c,mode,"pick-reason",c.reasons,s.diagnosis)+msg+'<div class="actions">'+btn("Comprobar explicación","lab-reason","button","check",s.diagnosis===null?"disabled":"")+'</div></section>';
+  else if(s.stage===2)body=table+'<section class="panel"><h2>Repara el argumento</h2><p>'+esc(c.reasons[0])+'</p>'+labTextArea("lab-repair","Escribe una línea válida o explica el cambio que harías.",s.correction)+msg+'<div class="actions">'+btn("Comparar mi corrección","lab-compare","button")+'</div></section>';
+  else body=modelCheck(c.repair,c.explain,s.correction);
+ }
+ return intro+body;
+}
+function labAction(action,index,mode,c){
+ const s=caseState(mode,c.id),start=mode==="inicio",previousStage=s.stage;
+ if(action==="lab-again"){
+  delete data.workshops[mode+"/"+c.id];
+ }else if(action==="pick-plan"||action==="pick-line"){s.choice=index;s.message=""}
+ else if(action==="pick-reason"){s.diagnosis=index;s.message=""}
+ else if(action==="lab-check"&&s.choice!==null){
+  if(start){const option=c.plans[s.choice];if(!option)return;s.message=option.model?"":option.why;if(option.model)s.stage=1}
+  else{const ok=s.choice===c.first;s.message=ok?"":s.choice<c.first?"Esta línea sí está justificada. Sigue revisando las líneas de abajo.":"Hay una inferencia injustificada antes de esa línea. Recorre las referencias desde el principio.";if(ok)s.stage=1}
+ }else if(action==="lab-reason"){if(s.diagnosis===0){s.stage=2;s.message=""}else{s.message="Revisa lo que realmente dicen las referencias de esa línea. ¿Qué condición, signo o regla se usó sin justificación?"}}
+ else if(action==="lab-back"){s.stage=0;s.message="";s.choice=null;s.notes=""}
+ else if(action==="lab-compare"){
+  const draft=start?s.notes:s.correction;
+  if(draft.trim()){s.stage=start?2:3;s.message=""}else{s.message="Escribe tu propuesta antes de ver el modelo."}
+ }else if(action==="lab-edit"){s.stage=start?1:2;s.message=""}
+ else if(action==="lab-done"){s.finished=true;s.message=""}
+ save();render();
+ if(s.stage!==previousStage||s.finished||action==="lab-again"){
+  const title=root.querySelector(".panel:last-of-type h2");
+  if(title){title.tabIndex=-1;title.focus({preventScroll:true});title.scrollIntoView({block:"nearest"})}
+ }
+}
+
+function setup(p){
+ const t=byTopic(p.topic);if(setupId!==p.id){setupLevel=[1,2,3,4].find(n=>!data.done[flowKey(p.id,n)])||1;setupId=p.id}
+ const k=flowKey(p.id,setupLevel);
+ const workshopCase=proofCases.find(c=>c.related===p.id);
+ const related=workshopCase?'<div class="lab-related">'+link(labModes.inicio,"taller/inicio/"+workshopCase.id,"quiet","flag")+link(labModes.error,"taller/error/"+workshopCase.id,"quiet","search")+'</div>':"";
+ return crumbs([["Estudio","home"],[t.title,"topic/"+t.id],[p.title]])+'<div class="page-title"><div class="eyebrow">'+esc(p.method)+'</div><h1>'+esc(p.title)+'</h1></div><div class="split"><section class="panel"><h2>Elige cómo practicar</h2>'+levels.map(([t,d],i)=>'<button class="level-row" type="button" data-act="level" data-i="'+(i+1)+'" aria-pressed="'+(setupLevel===i+1)+'"><span class="num">'+(i+1)+'</span><span><strong>'+t+'</strong><small>'+d+'</small></span>'+(data.done[flowKey(p.id,i+1)]?icon("check"):setupLevel===i+1?icon("target"):"")+'</button>').join("")+'<div class="actions">'+link(data.runs[k]?"Continuar nivel "+setupLevel:"Empezar nivel "+setupLevel,"practice/"+p.id+"/"+setupLevel,"button","play")+'</div></section><aside class="panel"><div class="eyebrow">'+icon("flag")+' Por demostrar</div><div class="statement">'+esc(p.statement)+'</div><p class="meta">'+p.rows.length+' pasos en la solución modelo.</p><details><summary>Material de referencia</summary><p>'+esc(p.source)+'</p></details>'+related+'</aside></div>'
+}
+const colnames=["Referencia","Regla de inferencia","Conclusión"];
+function thCol(c){const sh={"Referencia":"Ref.","Regla de inferencia":"Regla"}[c];return '<th scope="col">'+(sh?'<span class="th-l">'+c+'</span><span class="th-s">'+sh+'</span>':c)+'</th>'}
+const questions=["¿Qué referencia justifica esta línea?","¿Qué regla justifica este paso?","¿Qué conclusión se obtiene?"];
+function shuffled(items,seed){let a=items.slice(),n=seed>>>0;for(let i=a.length-1;i>0;i--){n=(Math.imul(n,1664525)+1013904223)>>>0;const j=n%(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
+function hash(s){return Array.from(s).reduce((a,c)=>Math.imul(a,31)+c.charCodeAt(0)|0,7)}
+function normalize(s){return String(s).toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replaceAll("<=>","⇔").replaceAll("=>","⇒").replaceAll("->","⇒").replaceAll("→","⇒").replaceAll("!=","≠").replaceAll("<=","≤").replaceAll(">=","≥").replaceAll("∥","||").replace(/[−–—]/g,"-").replace(/\b(epsilon|eps)\b/g,"ε").replace(/\bdelta\b/g,"δ").replace(/\bpara todo\b/g,"∀").replace(/\bexiste\b/g,"∃").replace(/[\s.·]/g,"").replace(/\*/g,"")}
+function equalCell(a,b,col){
+ if(normalize(a)===normalize(b))return true;
+ if(col===0){const sort=s=>normalize(s).split(/[,;]/).sort().join(",");return sort(a)===sort(b)}
+ return false
+}
+const ruleFamilies=[
+ ["Premisa","Suposición","Elemento arbitrario","Elección arbitraria","Hipótesis inductiva"],
+ ["Modus ponens universal","Modus tollens universal","Generalización universal","Instanciación universal","Generalización existencial","Instanciación existencial"],
+ ["Adición lógica","Conjunción","Prueba por casos","Prueba condicional","Prueba por contradicción","Tercero excluido","Contradicción"],
+ ["Distributividad","Conmutatividad","Transitividad","Simetría","Sustitución","Cancelación aditiva","Factorización","Identidad aditiva"],
+ ["Definición de derivada","Definición de continuidad","Límite de una constante","Acotación","Elección de δ","Regla de la cadena"],
+ ["Caso base","Inducción matemática","Hipótesis inductiva","Cierre del paso inductivo"]
+];
+function alternatives(p,i){
+ const row=p.rows[i],answer=row.cells[row.col];let other=row.wrong.slice();
+ if(row.col===0){other.push(String(i+1),String(i+2),i>1?"1, "+(i+1):"2, 3")}
+ if(row.col===1){const family=ruleFamilies.find(f=>f.includes(answer))||["Prueba por casos","Conjunción","Simetría","Inducción matemática"];other.push(...shuffled(family.filter(x=>x!==answer),hash(p.id+":"+i)))}
+ if(row.col===2&&!other.length){other.push("⊥","0 = 1","∀x (x ∉ S)")}
+ const unique=[...new Set(other)].filter(t=>t!==answer).slice(0,2);
+ return shuffled([answer,...unique],hash(p.id+i));
+}
+function tokenBank(p,i){const r=p.rows[i],ans=r.cells[r.col];let parts=ans.match(/\S+\s*/g)||[ans];
+ if(parts.length===1&&ans.includes(","))parts=ans.split(/(?<=,)/);
+ if(parts.length===1&&ans.includes("–"))parts=ans.split(/(–)/);
+ const wrong=alternatives(p,i).filter(x=>x!==ans).map(x=>x.split(" ")[0]).filter(x=>!parts.some(y=>y.trim()===x)).slice(0,2);
+ return shuffled([...parts,...wrong],hash(p.id+"tiles"+i));
+}
+function proofTable(p,count=p.rows.length,hide=null){
+ return '<table class="proof-table"><thead><tr>'+colnames.map(thCol).join("")+'</tr></thead><tbody>'+p.rows.slice(0,count).map((r,i)=>'<tr>'+r.cells.map((c,j)=>'<td>'+(j===2?'<span class="lineno">'+(i+1)+'.</span>':"")+(j===2&&r.depth?'<span class="indent">':"")+(hide&&hide[0]===i&&hide[1]===j?'<span class="blank" aria-label="Casilla por resolver">?</span>':esc(c))+(j===2&&r.depth?'</span>':"")+'</td>').join("")+'</tr>').join("")+'</tbody></table>'
+}
+function localReset(){selection=null;feedback=null;showHint=false;tiles=[];answerText="";docCompare=false}
+function run(p,n){const k=flowKey(p.id,n);if(!data.runs[k])data.runs[k]={pos:0,order:p.rows.map((_,i)=>i),draft:[]};data.last={id:p.id,level:n};save();return data.runs[k]}
+function learnerRefs(){return '<details><summary data-act="consult">Consultar reglas y símbolos</summary><div class="stack">'+references.slice(0,19).map(([,s,t,f])=>'<p><strong>'+esc(s)+' · '+esc(t)+'</strong><br>'+esc(f)+'</p>').join("")+'</div></details>'}
+const symbols=["∀","∃","∈","∉","⇒","∧","∨","¬","⊥","ε","δ","−","·","²","⁻¹","≤","≠","ℓ","∥","∩","∅","ℕ","ℝ","′","–","—"];
+function symbolPad(){return '<div class="symbols" aria-label="Símbolos matemáticos">'+symbols.map((s,i)=>'<button type="button" data-act="symbol" data-i="'+i+'" aria-label="Insertar '+esc(s)+'">'+s+'</button>').join("")+'</div>'}
+function questionContent(p,n,s){
+ const i=s.order[s.pos],r=p.rows[i],trueAns=r.cells[r.col];
+ let body="";
+ if(n===1){body='<div class="choices">'+alternatives(p,i).map((v,j)=>'<button type="button" class="choice" aria-pressed="'+(selection===j)+'" data-act="choice" data-i="'+j+'"><span>'+letters[j]+'</span><span>'+esc(v)+'</span></button>').join("")+'</div>'}
+ if(n===2){
+ const bank=tokenBank(p,i);body='<p class="meta">Toca las fichas en orden. Toca una ficha colocada para retirarla.</p><div class="tile-place">'+(tiles.length?tiles.map((j,k)=>btn(bank[j].trim(),"untile","tile","","data-i="+k)).join(""):'<span>Tu respuesta</span>')+'</div><div class="chips">'+bank.map((v,j)=>btn(v.trim(),"tile","tile","","data-i="+j+(tiles.includes(j)?" disabled":""))).join("")+'</div>';
+ }
+ if(n===3){body='<label for="answer" class="meta">'+colnames[r.col]+' de la línea '+(i+1)+'</label><input id="answer" '+(feedback?.ok||feedback?.revealed?"readonly":"")+' class="field" type="text" autocomplete="off" placeholder="Escribe aquí" value="'+esc(answerText)+'">'+symbolPad()+'<p class="meta">Se aceptan espacios, acentos y equivalencias como “=>” por “⇒”.</p>'}
+ let msg=feedback?'<div role="status" class="feedback '+(feedback.ok?"good":"bad")+'"><strong>'+esc(feedback.title)+'</strong> '+esc(feedback.text)+'</div>':"";
+ if(feedback?.revealed)msg+='<p class="statement">'+esc(trueAns)+'</p>';
+ const ok=feedback?.ok||feedback?.revealed;
+ return '<div class="panel question"><div class="eyebrow">Línea '+(i+1)+' · '+colnames[r.col]+'</div><h2 style="margin:7px 0">'+questions[r.col]+'</h2>'+body+msg+(showHint?'<div class="hint"><strong>Pista.</strong> '+esc(r.hint)+'</div>':"")+'<div class="actions">'+(ok?btn(s.pos+1===s.order.length?"Terminar práctica":"Siguiente paso","next"):btn("Comprobar","check","button","check",(n===1&&selection===null||n===2&&!tiles.length||n===3&&!answerText.trim())?"disabled":""))+(!ok?btn(showHint?"Ocultar pista":"Ver pista","hint","quiet","bulb"):"")+(feedback&&!ok?btn("Ver respuesta","reveal","quiet"):"")+'</div></div>'
+}
+function practice(p,n){
+ const k=flowKey(p.id,n),s=run(p,n);
+ if(practiceKey!==k){practiceKey=k;localReset();disposePhoto()}
+ if(s.pos>=s.order.length&&n!==4){s.pos=0;save()}
+ const t=byTopic(p.topic),i=s.order[s.pos];
+ return crumbs([["Estudio","home"],[t.title,"topic/"+t.id],[p.title,"setup/"+p.id],["Nivel "+n]])+
+ '<div class="study-head"><div><div class="eyebrow">Nivel '+n+' · '+levels[n-1][0]+'</div><h1>'+esc(p.title)+'</h1></div>'+link("Guardar y salir","setup/"+p.id,"outline")+'</div>'+
+ '<div class="statement"><strong>Por demostrar.</strong> '+esc(p.statement)+'</div>'+
+ (n===4?notebook(p,s):'<div class="row-between meta"><b>Paso '+(s.pos+1)+' de '+s.order.length+'</b><span>'+esc(p.method)+'</span></div>'+progressBar(s.pos,s.order.length)+'<div class="panel"><h2>Tabla de demostración</h2>'+proofTable(p,i+1,[i,p.rows[i].col])+'</div>'+questionContent(p,n,s)+learnerRefs())
+}
+function disposePhoto(){if(photo?.url)URL.revokeObjectURL(photo.url);photo=null}
+function notebook(p,s){
+ if(!s.draft?.length){s.draft=(data.notes[p.id]||[["","",""],["","",""],["","",""]]).map(r=>r.slice());save()}
+ return '<section class="panel"><h2>Tu demostración</h2><p>Escribe una línea por paso o adjunta una foto de tu prueba en papel. Después podrás contrastarla con el modelo.</p><div class="note-row note-headers"><span>Referencia</span><span>Regla</span><span>Conclusión</span></div>'+
+ s.draft.map((row,i)=>'<div class="note-row">'+row.map((v,j)=>j===2?'<textarea rows="1" data-note="'+i+',2" aria-label="Conclusión, línea '+(i+1)+'" placeholder="'+(i+1)+'. Conclusión">'+esc(v)+'</textarea>':'<input class="field" data-note="'+i+','+j+'" aria-label="'+colnames[j]+', línea '+(i+1)+'" placeholder="'+(j?"Regla":"Ref.")+'" value="'+esc(v)+'">').join("")+btn("","remove","quiet","close",'aria-label="Quitar línea '+(i+1)+'" data-i="'+i+'" '+(s.draft.length===1?"disabled":""))+'</div>').join("")+
+ '<div class="actions">'+btn("Añadir línea","addrow","outline")+ '<label class="outline" style="cursor:pointer">Adjuntar foto<input id="photo" class="sr" type="file" accept="image/*"></label></div>'+
+ (photo?'<p class="meta notice">Foto disponible durante esta sesión.</p><img class="photo" src="'+esc(photo.url)+'" alt="Tu demostración manuscrita">':"")+
+ '<div class="actions">'+btn(docCompare?"Ocultar modelo":"Comparar con el modelo","compare","button")+'</div></section>'+
+ (docCompare?'<section class="panel"><h2>Demostración modelo</h2>'+proofTable(p)+'<p class="notice">Revisa si cada referencia apunta a una línea disponible, si la regla permite esa conclusión y si cerraste las suposiciones. Una demostración distinta también puede ser válida.</p><div class="actions">'+btn("Ya revisé mi demostración","finishdoc","button","check")+'</div></section>':"")
+}
+function referenceCards(){
+ const term=normalize(searchTerm);const arr=references.filter(([cat,...rest])=>cat===refFilter&&normalize(rest.join(" ")).includes(term));
+ if(refFilter==="Mis PDF"&&!sources.some(([t,d])=>normalize(t+" "+d).includes(term)))return '<div class="empty">No hay documentos que coincidan con tu búsqueda.</div>';
+ if(refFilter==="Mis PDF"){return '<div class="list">'+sources.filter(([t,d])=>normalize(t+" "+d).includes(term)).map(([t,d,id])=>'<a class="list-item" target="_blank" rel="noopener" href="https://chatgpt.com/library?file_id='+id+'&amp;account_id=personal"><span class="list-icon">'+icon("file")+'</span><span><strong>'+t+'</strong><small>'+d+'</small></span>'+icon("open")+'</a>').join("")+'</div>'}
+ return arr.length?'<div class="ref-grid">'+arr.map(([cat,s,t,f,d])=>'<article class="ref-card"><span class="glyph">'+esc(s)+'</span><div><strong>'+esc(t)+'</strong><span class="formula '+(cat==="Lean 4"?"lean":"")+'">'+esc(f)+'</span><p>'+esc(d)+'</p></div></article>').join("")+'</div>':'<div class="empty">No hay coincidencias en esta categoría.</div>'
+}
+const refCats=["Símbolos","Reglas","Axiomas","Lean 4","Mis PDF"];
+function refs(){return '<div class="page-title"><h1>Referencias</h1><p>Consulta la notación, las reglas y los axiomas que se usan en las pruebas.</p></div><div class="ref-controls">'+segment(refCats,refFilter,"refcat")+'<label class="searchwrap">'+icon("search")+'<input aria-label="Buscar en esta categoría" id="search" placeholder="Buscar en esta categoría" value="'+esc(searchTerm)+'"></label></div><div id="results">'+referenceCards()+'</div>'}
+const supportLabels={solo:"Al primer intento",retry:"Con reintento",hint:"Con pista",model:"Respuesta consultada"};
+const supportRank={solo:0,retry:1,hint:2,model:3};
+function attemptKey(page,p,n,i){return [page,p.id,n,i].join("/")}
+function markSupport(page,p,n,i,kind){
+ if(!p||n<1||n>3||i==null)return;
+ const k=attemptKey(page,p,n,i);
+ if(supportRank[kind]>supportRank[data.help[k]||"solo"]){data.help[k]=kind;save()}
+}
+function resultForStep(page,p,n,i){
+ const k=attemptKey(page,p,n,i),kind=data.help[k]||"solo";
+ (data.evidence[flowKey(p.id,n)]??={})[i]=kind;
+ delete data.help[k];
+ const pendingInOtherLevel=[1,2,3].some(level=>{
+  const status=data.evidence[flowKey(p.id,level)]?.[i];
+  return status&&status!=="solo";
+ });
+ if(!pendingInOtherLevel&&kind==="solo")maybeClearError(p,i);
+ save();return kind;
+}
+function stepCounts(records){
+ const tally={solo:0,retry:0,hint:0,model:0};
+ for(const bucket of records)for(const status of Object.values(bucket)){if(Object.hasOwn(tally,status))tally[status]++}
+ return tally;
+}
+function pendingSteps(p,n){
+ const bucket=data.evidence[flowKey(p.id,n)]||{};
+ return Object.keys(bucket).map(Number).filter(i=>p.rows[i]&&bucket[i]!=="solo").sort((a,b)=>a-b)
+}
+function legacySteps(p){
+ return Object.keys(data.errors[p.id]||{}).map(Number).filter(i=>p.rows[i]&&![1,2,3].some(n=>data.evidence[flowKey(p.id,n)]?.[i])).sort((a,b)=>a-b)
+}
+function pendingGroups(){
+ const groups=[];
+ for(const p of proofs){
+  for(const n of [1,2,3]){
+   const indices=pendingSteps(p,n);
+   if(indices.length)groups.push({title:p.title,label:"Nivel "+n+" · "+levels[n-1][0],count:indices.length,path:"reforzar/"+p.id+"/"+n+"/"+indices[0]})
+  }
+  const old=legacySteps(p);
+  if(old.length)groups.push({title:p.title,label:"Repaso con opciones",count:old.length,path:"review/"+p.id});
+ }
+ return groups;
+}
+function evidenceSummary(buckets){
+ const tally=stepCounts(buckets);
+ return '<div class="evidence-grid">'+Object.entries(supportLabels).map(([key,label])=>'<div class="metric m-'+key+'"><b>'+tally[key]+'</b><span>'+esc(label)+'</span></div>').join("")+'</div>'
+}
+function focusedReview(p,n,index){
+ const pending=pendingSteps(p,n);
+ if(!pending.length)return '<section class="panel"><h1>Repaso terminado</h1><p>Ya resolviste los pasos pendientes de este nivel.</p><div class="actions">'+link("Ver mi progreso","progress","button")+'</div></section>';
+ const i=pending.includes(index)?index:pending[0],ident=[p.id,n,i].join(":");
+ if(reviewId!==ident){localReset();reviewId=ident}
+ return crumbs([["Mi progreso","progress"],["Practicar sin ayuda"]])+'<div class="page-title"><div class="eyebrow">Nivel '+n+' · '+levels[n-1][0]+'</div><h1>'+esc(p.title)+'</h1><p>Intenta resolver la línea al primer intento. Si vuelves a usar ayuda, seguirá disponible para repasar.</p></div><div class="statement">'+esc(p.statement)+'</div><div class="panel">'+proofTable(p,i+1,[i,p.rows[i].col])+'</div>'+questionContent(p,n,{order:[i],pos:0})
+}
+function progress(){
+ const finished=proofs.filter(p=>modesDone(p.id)>0).length, groups=pendingGroups();
+ const levelTotal=Object.keys(data.done).length;
+ const pending=groups.reduce((sum,g)=>sum+g.count,0);
+ const sessions=Object.keys(data.runs).filter(k=>byId(k.split("@")[0]));
+ return '<div class="page-title"><h1>Mi progreso</h1><p>'+(sb?"Tu avance se guarda en tu cuenta y lo ves desde cualquier dispositivo.":"Tu avance se guarda en este navegador.")+'</p></div><div class="stats">'+[[finished,"Pruebas estudiadas"],[levelTotal,"Niveles completados"],[pending,"Pasos por repasar"]].map(([n,t])=>'<div class="stat"><b>'+n+'</b><small>'+t+'</small></div>').join("")+'</div>'+
+ '<section class="panel evidence"><h2>Cómo resolviste los pasos</h2><p>Cada línea de los niveles 1 a 3 cuenta una vez por nivel, según tu último intento terminado. Si usaste varias ayudas, cuenta la mayor.</p>'+evidenceSummary(Object.values(data.evidence))+
+ (groups.length?link("Practicar lo pendiente",groups[0].path,"button","play"):'<p class="meta">Los pasos en los que uses ayuda o necesites otro intento aparecerán aquí para repasarlos.</p>')+'</section>'+
+ '<div class="split"><section class="panel"><h2>Avance por tema</h2>'+topics.map(t=>{const {n,m}=topicStats(t.id);return '<div class="progress-item"><div class="row-between"><a href="#/topic/'+t.id+'">'+t.title+'</a><span class="meta">'+n+' / '+m+' niveles</span></div>'+progressBar(n,m)+'</div>'}).join("")+'<h3 class="sub-h">Talleres</h3>'+Object.keys(labModes).map(md=>{const k=labDone(md),tt=proofCases.length;return '<div class="progress-item"><div class="row-between"><a href="#/taller/'+md+'">'+labModes[md]+'</a><span class="meta">'+k+' / '+tt+' revisados</span></div>'+progressBar(k,tt)+'</div>'}).join("")+'</section><div><section class="panel"><h2>Pasos para repasar</h2>'+(groups.length?'<div class="list">'+groups.map(g=>listRow(g.title,g.label+' · '+g.count+(g.count===1?' paso':' pasos'),g.path,"reset")).join("")+'</div>':'<p>Todavía no hay pasos pendientes.</p>')+'</section><section class="panel"><h2>En curso</h2>'+(sessions.length?'<div class="list">'+sessions.map(k=>{const [id,n]=k.split("@");return listRow(byId(id).title,"Nivel "+n,"practice/"+id+"/"+n,"pen")}).join("")+'</div>':'<p>Aquí aparecerán tus demostraciones pendientes.</p>')+'</section></div></div>';
+}
+
+function result(p,n){
+ const d=data.done[flowKey(p.id,n)];return '<section class="panel"><div class="eyebrow">'+icon("check")+' Práctica terminada</div><div class="page-title"><h1>'+esc(p.title)+'</h1><p>Nivel '+n+' · '+levels[n-1][0]+'</p></div><p>'+(n===4?"Has comparado tu demostración con el modelo.":d?'Completaste los '+p.rows.length+' pasos de esta demostración.':"Terminaste este repaso.")+'</p>'+(n<4&&data.evidence[flowKey(p.id,n)]?evidenceSummary([data.evidence[flowKey(p.id,n)]]):"")+'<div class="actions">'+(n<4?link("Practicar el nivel "+(n+1),"practice/"+p.id+"/"+(n+1),"button","play"):link("Volver al tema","topic/"+p.topic,"button","study"))+link("Ver mi progreso","progress")+'</div><details><summary>Ver la demostración completa</summary>'+proofTable(p)+'</details></section>'
+}
+function render(){
+ if(!booted){root.innerHTML='<div class="boot">Cargando…</div>';return}
+ if(route()[0]==="logout"){signOut();return}
+ if(!user){renderHeader("login");root.innerHTML=authPage();document.title="Entrar · Axioma";return}
+ const [page="home",id,a]=route(),p=byId(id),n=Number(a),t=byTopic(id);
+ renderHeader(page);let html;
+ if(page==="taller"&&Object.hasOwn(labModes,id)){const c=caseById(a);html=c?labExercise(id,c):labList(id)}
+ else if(page==="reforzar"&&p&&[1,2,3].includes(n))html=focusedReview(p,n,Number(route()[3]));
+ else if(page==="topic"&&t)html=topic(t);
+ else if(page==="setup"&&p)html=setup(p);
+ else if(page==="practice"&&p&&[1,2,3,4].includes(n))html=practice(p,n);
+ else if(page==="result"&&p&&[1,2,3,4].includes(n))html=result(p,n);
+ else if(page==="review"&&p){
+   const remaining=legacySteps(p);
+   if(!remaining.length)html='<section class="panel"><h1>Repaso terminado</h1><p class="notice">Ya resolviste los pasos pendientes de '+esc(p.title)+'.</p><div class="actions">'+link("Ver mi progreso","progress","button")+'</div></section>';
+   else{const i=remaining[0];if(reviewId!==id+":"+i){reviewId=id+":"+i;localReset()}
+   html=crumbs([["Mi progreso","progress"],["Repaso de errores"]])+'<div class="page-title"><div class="eyebrow">Repaso de errores</div><h1>'+esc(p.title)+'</h1><p>'+remaining.length+' pasos pendientes</p></div><div class="statement">'+esc(p.statement)+'</div><div class="panel">'+proofTable(p,i+1,[i,p.rows[i].col])+'</div>'+questionContent(p,1,{order:remaining,pos:0})}
+ }else if(page==="ref")html=refs();
+ else if(page==="progress")html=progress();
+ else html=home();
+ root.innerHTML=html;
+ document.title=(page==="taller"?(caseById(a)?.title||labModes[id]||"Taller"):p?p.title:t?t.title:page==="ref"?"Referencias":page==="progress"?"Mi progreso":"Taller de demostraciones")+" · Axioma";
+ requestAnimationFrame(drawArt);
+}
+function finish(p,n){
+ const k=flowKey(p.id,n),s=data.runs[k];if(n===4&&s)data.notes[p.id]=s.draft;
+ data.done[k]=true;delete data.runs[k];if(data.last?.id===p.id&&data.last.level===n)data.last=null;
+ save();practiceKey="";disposePhoto();go("result/"+p.id+"/"+n)
+}
+function setError(p,i){(data.errors[p.id]??={})[i]=true;save()}
+function maybeClearError(p,i){if(data.errors[p.id]){delete data.errors[p.id][i];if(!Object.keys(data.errors[p.id]).length)delete data.errors[p.id];save()}}
+function boundContext(){
+ const [page,id,level,step]=route(),p=byId(id),n=page==="review"?1:Number(level);
+ let s;
+ if(page==="review"&&p)s={pos:0,order:legacySteps(p)};
+ else if(page==="reforzar"&&p){const pending=pendingSteps(p,n),asked=Number(step);s={pos:0,order:pending.length?[pending.includes(asked)?asked:pending[0]]:[]}}
+ else s=data.runs[flowKey(id,n)];
+ return {page,p,n,s,i:s?.order[s.pos]};
+}
+function rerenderQuestion(){const y=window.scrollY;render();window.scrollTo(0,y)}
+root.addEventListener("click",e=>{
+ const b=e.target.closest("[data-act]");if(!b)return;
+ const a=b.dataset.act,j=Number(b.dataset.i);
+ if(a==="as-user"){const u=knownUsers()[j];if(u){writeLS(SESSION,u);adopt({id:u.email,email:u.email,name:niceName(u.name,u.email)});go("home")}return}
+ if(a==="auth-tab"){authTab=b.dataset.k;authMsg="";render();root.querySelector("#email")?.focus();return}
+ if(!user)return;
+ const {page,p,n,s,i}=boundContext();
+ if(page==="taller"){const [,mode,id]=route(),c=caseById(id);if(c)labAction(a,j,mode,c);return}
+ if(a==="consult"){if(!b.parentElement.open&&!feedback?.ok&&!feedback?.revealed)markSupport(page,p,n,i,"hint");return}
+ if(a==="themes"){const h=document.getElementById("themes");if(h){h.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});h.focus({preventScroll:true})}return}
+ if(a==="group"){homeFilter=courseFilter[j];render();return}
+ if(a==="refcat"){refFilter=refCats[j];searchTerm="";render();return}
+ if(a==="level"){setupLevel=j;render();return}
+ if(a==="choice"||a==="tile"||a==="untile"){
+   if(feedback?.ok||feedback?.revealed)return;
+   if(a==="choice")selection=j;else if(a==="tile")tiles.push(j);else tiles.splice(j,1);
+   feedback=null;rerenderQuestion();return;
+ }
+ if(a==="hint"){if(!showHint)markSupport(page,p,n,i,"hint");showHint=!showHint;rerenderQuestion();return}
+ if(a==="symbol"){const field=document.querySelector("#answer");if(!field||field.readOnly)return;const at=field.selectionStart??field.value.length,end=field.selectionEnd??at;field.setRangeText(symbols[j],at,end,"end");field.dispatchEvent(new Event("input",{bubbles:true}));field.focus();return}
+ if(a==="addrow"||a==="remove"){if(a==="addrow")s.draft.push(["","",""]);else if(s.draft.length>1)s.draft.splice(j,1);save();rerenderQuestion();return}
+ if(a==="compare"){if(!docCompare&&!photo&&!s.draft.some(r=>r.some(c=>c.trim()))){announce("Escribe al menos un paso o adjunta tu foto.");root.querySelector("[data-note]").focus();const el=root.querySelector(".notice-empty");if(!el)b.insertAdjacentHTML("afterend",'<span class="notice-empty meta" role="alert">Escribe un paso o adjunta tu foto para comparar.</span>');return}docCompare=!docCompare;rerenderQuestion();if(docCompare)root.querySelector(".panel:last-child")?.scrollIntoView({block:"start"});return}
+ if(a==="finishdoc"){finish(p,n);return}
+ if(!p||!s||i==null)return;
+ const row=p.rows[i],answer=row.cells[row.col];
+ if(a==="check"){
+ const val=n===1?alternatives(p,i)[selection]:n===2?tiles.map(j=>tokenBank(p,i)[j]).join(""):answerText;
+ const ok=equalCell(val??"",answer,row.col);
+ feedback=ok?{ok:true,title:"Correcto.",text:row.hint}:{ok:false,title:n===3?"Aún no coincide con el modelo.":"Revisa este paso.",text:n===3?"Comprueba la notación o consulta la respuesta para comparar tu razonamiento.":row.hint};
+ if(!ok){markSupport(page,p,n,i,"retry");setError(p,i)}
+ rerenderQuestion();return;
+ }
+ if(a==="reveal"){markSupport(page,p,n,i,"model");feedback={ok:false,revealed:true,title:"Respuesta modelo.",text:row.hint};setError(p,i);rerenderQuestion();return}
+ if(a==="next"&&(feedback?.ok||feedback?.revealed)){
+   const recorded=resultForStep(page,p,n,i);
+   if(page==="reforzar"){
+    localReset();const next=pendingSteps(p,n).find(index=>index!==i);
+    if(next!=null)go("reforzar/"+p.id+"/"+n+"/"+next);
+    else if(recorded==="solo"){render();window.scrollTo(0,0)}else go("progress");
+    return;
+   }
+   if(page==="review"){localReset();render();window.scrollTo(0,0);return}
+   if(s.pos+1>=s.order.length){finish(p,n);return}
+   s.pos++;save();localReset();render();root.querySelector(".question")?.scrollIntoView({block:"center"});return;
+ }
+});
+root.addEventListener("input",e=>{
+ if(["lab-notes","lab-repair"].includes(e.target.id)){
+  const [,mode,id]=route(),s=caseState(mode,id);
+  s[e.target.id==="lab-notes"?"notes":"correction"]=e.target.value;s.message="";save();return;
+ }
+ if(e.target.id==="search"){searchTerm=e.target.value;document.querySelector("#results").innerHTML=referenceCards();return}
+ if(e.target.id==="answer"){answerText=e.target.value;const b=root.querySelector('[data-act="check"]');if(b)b.disabled=!answerText.trim();return}
+ if(e.target.dataset.note){const {s}=boundContext(),[i,j]=e.target.dataset.note.split(",").map(Number);s.draft[i][j]=e.target.value;save()}
+});
+root.addEventListener("submit",e=>{if(e.target.id==="auth-form"){e.preventDefault();if(!authBusy)submitAuth(e.target)}});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden"&&sb&&user&&syncState!=="saved")pushCloud()});
+root.addEventListener("keydown",e=>{if(e.target.id==="answer"&&e.key==="Enter")root.querySelector('[data-act="check"]:not(:disabled)')?.click()});
+root.addEventListener("change",e=>{
+ if(e.target.id==="photo"){const f=e.target.files[0];if(!f)return;if(!f.type.startsWith("image/")){announce("Selecciona un archivo de imagen.");return}disposePhoto();photo={url:URL.createObjectURL(f)};rerenderQuestion()}
+});
+window.addEventListener("hashchange",()=>{
+ localReset();setupId=null;practiceKey="";reviewId="";disposePhoto();
+ {const [pg,md,cid]=route(),w=user&&data.workshops[md+"/"+cid];if(pg==="taller"&&w)w.message=""}
+ render();window.scrollTo(0,0);root.focus({preventScroll:true})
+});
+boot();
+
+
+</script></body></html>
